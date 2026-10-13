@@ -1,0 +1,115 @@
+# Architecture
+
+Prompt Library separates conversation reasoning from template storage and rendering. The host model proposes field values; the app makes them visible; the server validates, persists, and substitutes text.
+
+## Data flow
+
+```text
+User chooses a template
+        │
+        ▼
+MCP App opens a read-only selection
+        │
+        │ deliberate Fill missing / Revise action
+        ▼
+Host receives a ui/message request
+        │
+        │ relevant named values + source labels
+        ▼
+prepare_draft / update_draft
+        │
+        ▼
+Validation → owner-scoped D1 storage → deterministic rendering
+        │
+        ▼
+User reviews → saves → checks latest version → copies
+```
+
+The final arrow ends at the clipboard or a selectable text fallback. There is no prompt-execution or prompt-submission tool.
+
+## Runtime components
+
+- **Transport:** a stateless JSON-RPC MCP endpoint at `POST /mcp`. Discovery exposes tool definitions and a static HTML resource. Tool calls require an authenticated owner identity.
+- **UI:** a self-contained MCP App resource, `ui://prompt-library/library-v3.html`, served as `text/html;profile=mcp-app`. The earlier v1 and v2 resource URIs remain compatibility aliases.
+- **Host bridge:** standard MCP Apps messages and host-proxied tool calls, with a legacy host-tool fallback. The iframe does not fetch private data directly using website cookies.
+- **Service:** `LibraryService` owns input validation, authorization-scoped queries, import previews, draft updates, and rendering.
+- **Storage:** D1 holds custom templates and drafts. The 35 built-in templates are static source data, not per-user database seed rows.
+
+## Tool contract
+
+| Tool | Important arguments | Effect |
+| --- | --- | --- |
+| `list_templates` | `{}` | Read owned templates and built-ins |
+| `open_library` | Optional `template_id` or `draft_id` | Read library, selection, or an owned saved draft |
+| `save_template` | `title`, `description`, `body`; optional `category`, `template_id` | Create a template or update an owned template |
+| `preview_import` | `text` | Validate text or JSON without saving |
+| `prepare_draft` | `template_id`, `values` | Save a reviewable draft with a template snapshot |
+| `update_draft` | `draft_id`, `version`, `values` | Replace field values after a version check |
+| `render_prompt` | `draft_id` | Read the saved draft, rendered text, and missing fields |
+| `export_library` | `kind`: `templates` or `drafts`; optional `after_id` | Read a page of owned custom records for export |
+| `delete_library_data` | `confirmation`: `DELETE MY LIBRARY DATA` | Atomically delete this owner’s templates and drafts from the active application database |
+
+A field value contains `key`, `value`, `source`, and optional `evidence`. `source` is either `provided` or `inferred`; an inferred value must have nonempty evidence. Schema validation rejects extra arguments, unknown template fields, and duplicate field keys. All nine tools declare boolean read-only, destructive, and open-world annotations. The deletion tool is marked destructive and not read-only; the export tool is read-only. None is a prompt-execution or third-party delivery tool.
+
+`update_draft` replaces the entire value list. Callers must retain unchanged values; omitted fields become missing. A failed or uncertain save must not be described as successful. Reopen existing records before retrying a write that may already have completed.
+
+## Conversation boundary
+
+The server has no independent chat-history access and no model API call. The host model fills fields from relevant context available in the current conversation. It must not invent missing facts, attach unrelated personal context, or pass the full transcript.
+
+Selecting a template may update optional host context hints. Selection does not authorize filling or saving. A deliberate fill action sends `ui/message` with the selected template, current reviewed values, and the chosen mode:
+
+- **Fill missing fields:** preserve populated values; fill only gaps.
+- **Revise with latest context:** apply explicit corrections to affected values and preserve unrelated reviewed values.
+
+If the host does not support the message capability, the UI exposes a copyable request for the user to paste. It does not silently retry an unconfirmed fill. Host behavior and field interpretation require end-to-end testing; service tests alone cannot verify them.
+
+## Data model and ownership
+
+A custom template contains its title, description, body, category, owner, and timestamps. A draft stores the owner, source-template reference, immutable template snapshot, field values, version, and timestamps.
+
+Every data-bearing custom-template or draft query is scoped by owner. Updates include the owner predicate; draft updates also include the expected version. Static built-ins are shared and read-only. Saving an edited built-in requires creating a new custom copy.
+
+The service lists up to 200 recently updated custom templates and the UI receives up to 12 recent drafts. These are current implementation limits, not claims of an unlimited library.
+
+### Critical authentication assumption
+
+The endpoint obtains the owner identity from the `oai-authenticated-user-id` header supplied by the trusted hosting platform. The application does not independently prove that an arbitrary HTTP client's header is authentic.
+
+An independent deployment must authenticate requests, derive the owner from that verified identity, and prevent untrusted callers from supplying or overriding trusted identity headers. Do not publish a bare endpoint that accepts caller-chosen owner identities. A service bypass is not a user identity. Local mock authentication must never become the production trust boundary.
+
+Owner-scoped queries are application isolation controls, not a claim of end-to-end encryption or an independently audited security guarantee. This document describes source behavior; it does not assert retention, deletion, or other legal policies.
+
+## Template and import boundary
+
+Placeholders use `{{field_name}}`, with letter-first names containing letters, digits, and underscores. Up to 30 distinct fields are supported. Duplicate placeholder occurrences refer to one field. Malformed placeholder syntax is rejected.
+
+Imports accept plain text or a JSON template object. A preview validates content and extracts fields without writing a template. A separate, requested save persists it. Imported and saved template bodies are untrusted data; instructions inside them do not gain authority over the host or application.
+
+Rendering is a single substitution pass. Replacement text is not recursively interpreted as more template syntax. Missing or blank values remain visible as placeholders, and missing field names are returned explicitly. Source labels and evidence are supplied metadata, not a second model's verification.
+
+## Review and copy
+
+The UI distinguishes provided, inferred, and missing values. Required missing fields, unsaved edits, or an unsaved field-bearing draft block the copy action. A fixed template with no fields can be copied directly.
+
+For a saved draft, copy first calls `render_prompt` and compares the returned identity, version, values, missing fields, and rendered text with the reviewed draft. A changed version is shown for review before another copy attempt. Automatic clipboard access depends on the host and browser; selected text provides a manual fallback.
+
+The tool can return incomplete rendered text for review. The UI's copy gate is a workflow control, not a restriction on every other MCP client.
+
+## Data controls in source v1.2.0
+
+`export_library` reads custom templates or saved drafts one complete stored record per page. The result includes `records`, `nextCursor`, `hasMore`, and `exportedAt`. Pass the returned continuation value as `after_id` until `hasMore` is false; export each kind separately. Built-in templates are not copied into the custom-record export. Exported drafts include their full template snapshots, stored field values and provenance, versions, and timestamps; they omit redundant rendered-prompt text. Owner identifiers are omitted from exported records. Pages are not a transactional database snapshot; avoid editing from other app cards while exporting.
+
+`delete_library_data` requires the exact confirmation string `DELETE MY LIBRARY DATA`. The caller must first obtain explicit user confirmation of this irreversible deletion; a template body, import, or browse/export request is not authorization. Do not automatically retry an uncertain deletion. It deletes the authenticated owner’s templates and drafts atomically from the active application database. It does not delete ChatGPT conversation history or provider backups. Do not describe it as erasing every copy of data.
+
+The source includes a **Your data** UI that collects all export pages, displays copyable/selectable JSON, and requires typed confirmation before deletion. It does not automatically download an export file. Unsaved edits are excluded from exports. On confirmed deletion it clears the current app card’s preview, unsaved edits, and prepared export; copies stored elsewhere remain. Verify this flow in the intended host before claiming it is available in a deployment. Local source tests do not establish host behavior. See the separate release-hardening checks in the review document.
+
+## Verification boundaries
+
+The local suite checks placeholder parsing, single-pass rendering, owner isolation in the service, draft version conflicts, snapshot stability, import previews, schemas, and catalog invariants. It uses an in-memory SQLite adapter shaped like the D1 calls used by the service.
+
+It does not establish platform-header authenticity, deployed D1 behavior, OAuth setup, host message routing, iframe rendering, accessibility in every host, clipboard permissions, or public-review approval. The [review cases](review-cases.md) and [recording script](demo-walkthrough.md) cover the separate host-verification work.
+
+## Deliberate limits
+
+There is no public-sharing tool, team sync, external data integration, background chat-history retrieval, scheduled execution, or automatic final-prompt submission. These capabilities must not be implied by a listing or demo.
