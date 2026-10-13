@@ -12,17 +12,17 @@ This repository provides source, branding, review cases, and a recording script.
 - Intended publisher: Abdallah Arslan, individual; identity verification remains a portal step
 - Explicit all-supported-countries targeting (`countries: []`) and free release (`commerce: false`), supplied by the owner
 - A separate portable upload builder that omits private App bindings and credentials, verifies its ZIP inventory, and refuses missing materials unless explicitly building a preparation draft
-- Existing public product and support pages identifying Prompt Library and its publisher
+- All four published and content-verified product, support, privacy and terms pages on aaarslan.com
+- Owner-approved adults-only eligibility (18+) in the app notice, policies and listing; the notice does not technically verify age
+- Canonical Site version 4 deployed from the tested source; its audience remains limited to the owner
 
 ## Still required for submission
 
 1. Verify the publisher identity and the supported publication route for the existing Sites-owned canonical App. Do not create a duplicate private plugin merely to wrap an existing Site.
-2. Review and publish the prepared privacy and terms pages on the publisher's existing website. The owner selected saved-record retention until deletion and the existing public support address. No additional advertising, analytics, or data-sale integrations are part of this release.
-3. Verify all four listing pages' content and public access. Add the privacy and terms URL fields only after those pages are actually published and verified.
-4. Deploy this source through the canonical Site's existing authorized integration and confirm the exact deployed version provides the documented controls. Follow the supported Sites source workflow and keep any short-lived, repository-scoped credentials in session memory only.
-5. Record and verify a real demonstration of the exact submitted version in its intended host. The illustration and walkthrough script are not a recorded demo.
-6. Provide a dedicated reviewer-accessible test environment and account through secure portal fields, without production data or credentials in the repository.
-7. Validate the final package and its metadata, then connect and test the saved submission in the supported portal. The authorized publisher must resolve scans and attestations.
+2. Complete the real intended-host demonstration and reviewer access using an adult, dedicated test identity and fictional records. Keep private credentials in secure portal fields.
+3. Verify a reviewer-accessible recording URL, then add it to metadata and rebuild and inspect the final ZIP. The four public listing pages are already verified and their fields populated.
+4. Connect and test the exact deployed application in the intended ChatGPT host and saved submission. Local tests and a successful canonical deployment do not establish actual host rendering, clipboard behavior, or reviewer access.
+5. Validate the final package and its imported metadata, resolve scans, and have the owner complete identity verification and legal/policy attestations in the supported portal. The illustration and walkthrough script remain preparation material, not a recorded demo.
 
 Upload, review submission, approval, and publishing are separate states. None is established by a successful source build or a public GitHub repository.
 

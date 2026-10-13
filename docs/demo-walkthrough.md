@@ -2,9 +2,12 @@
 
 **Recording script only. Not recorded, uploaded, or verified.**
 
-Target: a 3–4 minute demonstration of the packaged v1.2.1 version in a supported ChatGPT host. Use a dedicated review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
+Target: a 3–4 minute demonstration of the packaged v1.2.1 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
 
 ## Before recording
+
+The app, listing, and published policies are adults only (18+). The eligibility notice does not technically verify age. Use an existing adult test identity; keep owner data and account history out of the recording.
+
 
 - Confirm the development installation points to the exact application version being prepared for review. Do not substitute a static mockup or another deployment.
 - Verify that the reviewer can access the intended application using a dedicated test identity. Keep credentials in secure reviewer-access fields, never in this document or a public package.

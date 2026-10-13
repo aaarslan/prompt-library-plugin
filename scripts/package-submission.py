@@ -72,8 +72,8 @@ if review['commerce'] and not review.get('commerce_description'):
     raise SystemExit('Describe the actual commerce behavior.')
 cases = review['test_cases']
 for kind, minimum in [('positive', 5), ('negative', 3)]:
-    if len(cases.get(kind, [])) < minimum:
-        raise SystemExit(f'At least {minimum} {kind} review cases are required.')
+    if len(cases.get(kind, [])) != minimum:
+        raise SystemExit(f'Exactly {minimum} {kind} review cases are required for initial MCP review.')
     for case in cases[kind]:
         fields = ['description', 'prompt'] + (['tools_triggered', 'expected_behavior'] if kind == 'positive' else [])
         if any(not isinstance(case.get(field), str) or not case[field].strip() for field in fields):

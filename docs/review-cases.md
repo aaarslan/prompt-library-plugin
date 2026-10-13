@@ -1,6 +1,6 @@
 # Review cases
 
-Draft review material for the v1.2.0 source release. **All eight cases: Not run in submission host.** These are expected results, not a record of successful ChatGPT execution or approval.
+Draft review material for the v1.2.1 source release. **All eight cases: Not run in submission host.** These are expected results, not a record of successful ChatGPT execution or approval.
 
 Coverage: read-only discovery; partial fill and provenance; revision, persistence, and rendering; safe import preview; saved-template snapshots; three distinct unsupported requests. The companion [JSON](review-cases.json) contains the single-server review-case field shape for package preparation. It does not establish submission readiness.
 

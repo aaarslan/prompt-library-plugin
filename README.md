@@ -1,5 +1,7 @@
 # Prompt Library
 
+Prompt Library is intended only for adults aged 18 or older. The eligibility notice does not technically verify age.
+
 ### A better starting point. A prompt you can inspect.
 
 Browse reusable templates, fill relevant details from your conversation, and review every field before copying the final prompt.

@@ -12,7 +12,7 @@
         "displayName": "Prompt Library",
         "developerName": "Abdallah Arslan",
         "shortDescription": "Reusable prompts, reviewed",
-        "longDescription": "Browse 35 templates across eight categories or save your own. Deliberately fill missing fields or revise a draft using relevant context available to the host model. Review provided facts, labeled inferences, and missing details, then copy the final prompt. The server performs deterministic substitution and cannot independently read chat history. User data is owner-scoped; the source provides full export and explicit-confirm deletion from the app’s active database. Availability depends on the deployed version and host capabilities.",
+        "longDescription": "For adults aged 18 or older. Browse 35 templates across eight categories or save your own. Deliberately fill missing fields or revise a draft using relevant context available to the host model. Review provided facts, labeled inferences, and missing details, then copy the final prompt. The server performs deterministic substitution and cannot independently read chat history. User data is owner-scoped; the source provides full export and explicit-confirm deletion from the app’s active database. Availability depends on the deployed version and host capabilities. The app shows an eligibility notice; it does not technically verify age.",
         "category": "Productivity",
         "websiteURL": "https://aaarslan.com/prompt-library",
         "supportURL": "https://aaarslan.com/prompt-library/support",
@@ -22,7 +22,9 @@
           "Show me templates for reviewing a software architecture."
         ],
         "logo": "assets/icon.png",
-        "composerIcon": "assets/icon.png"
+        "composerIcon": "assets/icon.png",
+        "privacyPolicyURL": "https://aaarslan.com/prompt-library/privacy",
+        "termsOfServiceURL": "https://aaarslan.com/prompt-library/terms"
       },
       "publication": {
         "countries": [],
