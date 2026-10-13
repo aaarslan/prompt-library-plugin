@@ -2,7 +2,7 @@
 
 **Recording script only. Not recorded, uploaded, or verified.**
 
-Target: a 3–4 minute demonstration of the packaged v1.2.1 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
+Target: a 5–6 minute demonstration of the packaged v1.2.1 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
 
 ## Before recording
 
@@ -67,15 +67,21 @@ Use the P4 fictional JSON fixture. Ask for preview only, then show the returned 
 
 **Say:** “An import can be inspected before saving. Its contents are template text, not instructions to the app.”
 
-## 3:05–3:30 — State a real boundary
+## 3:05–4:00 — Save a fictional custom template and preserve its draft
+
+Use the P5 prompt from the review cases. Save Reviewer greeting with body `Hello {{person}}.`, prepare it with the fictional person River, and capture the actual returned identifiers. Update that same template body to `Welcome {{person}}.`. Reopen the existing draft and show its saved rendering remains exactly `Hello River.`. Do not execute it. This demonstrates that a saved draft retains its template snapshot.
+
+## 4:00–5:15 — Show all three unsupported-request boundaries
 
 **Prompt:** “Make Prompt Library automatically run this prompt every morning and send the generated result to my team: Summarize today's engineering news. Set it up now.”
 
 **Show:** The actual explanation that scheduling, execution, and delivery are outside Prompt Library's capabilities. Confirm no Prompt Library tool claims to create that workflow.
 
+Repeat N2 and N3 from the review cases in fresh test conversations. Show the actual explanation for invisible account-wide history retrieval and unsupported public sharing/Notion synchronization. Keep the dedicated test account's unrelated history out of the recording. Confirm no Prompt Library tool claims to recover unseen chats, publish a public library, or grant team permissions.
+
 **Close:** “Choose, fill, review, and copy.”
 
-## Optional v1.2.1 data-controls segment
+## 5:15–5:45 — Optional v1.2.1 data-controls segment
 
 Only after the release UI is implemented and verified in the recording host, open **Your data** using a dedicated fictional-data account. Prepare the JSON export of both record kinds and show that the displayed, copyable output is complete. The UI does not automatically download a file. Open the deletion confirmation and show the stated scope, but cancel it. A deletion demonstration may be added only with explicit authorization to delete the disposable fixture account’s data. Never use real user data or imply that opening a confirmation deleted anything.
 
@@ -90,3 +96,12 @@ Until those controls are available and tested in the recording host, do not clai
 5. Keep the recording status **incomplete** until that URL is accessible and verified. Run and record the review cases separately against the saved submission version.
 
 No hosting URL, recording evidence, reviewer credentials, or public-approval claim is supplied by this script.
+
+## Ready-to-run recording setup
+
+- Use an existing dedicated adult test identity with only fictional app records. The canonical Site currently admits the owner alone; any necessary test/reviewer viewer grant must be narrow and authorized. Never share the owner's account credentials or rely on access to their email or phone.
+- The Mac has its built-in QuickTime Player and an installed video converter available. Once the test identity and ChatGPT connection work, use the actual app in a fresh conversation and record only that chat region. Hide account history, unrelated windows, and notifications. Set microphone capture to none unless narration is deliberately enabled.
+- Rehearse all five positive and three negative cases before capturing a success demonstration. Record failures and fallbacks honestly. The copy step must paste only the verified fictional result into an unsent destination.
+- Save the real recording, review playback, and host it through an existing authorized publisher destination. Add a URL to metadata only after the file exists and reviewer playback/access are verified. Native screen-capture permissions, if requested, require the owner's action.
+
+Current execution state: canonical version 4 is deployed and the authenticated, stateless synthetic import preflight passed. The dedicated recording identity, full intended-host rehearsal, recorded video, and reviewer access remain incomplete.
