@@ -1,7 +1,7 @@
 {
   "positive": [
     {
-      "description": "P1. Read-only catalog discovery and template selection. Not run in submission host. Setup: authenticated dedicated review account and packaged v1.2.0 app; no draft should be created.",
+      "description": "P1. Read-only catalog discovery and template selection. Not run in submission host. Setup: authenticated dedicated review account and packaged v1.2.1 app; no draft should be created.",
       "prompt": "Show the templates in Prompt Library and open Project brief so I can inspect its fields. Don't fill or save a draft yet.",
       "tools_triggered": "list_templates, open_library",
       "expected_behavior": "Call list_templates with {} and open_library with {\"template_id\":\"sample_project_brief\"}. Return the 35 built-in templates across eight categories, plus any owned custom templates. Open the interactive library with Project brief selected and fields project_name, goal, audience, constraints, success_criteria. Do not call prepare_draft, update_draft, or save_template. No new draft is created. Unsupported UI rendering is a blocked host test, not a pass."

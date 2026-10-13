@@ -1,14 +1,21 @@
 {
   "$comment": "Draft metadata only. Not an installable plugin manifest or submission-ready package. Missing publication facts remain absent.",
   "name": "prompt-library",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Reusable prompt templates with conversation-aware field review and copy-only output.",
+  "author": {
+    "name": "Abdallah Arslan"
+  },
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Prompt Library",
+        "developerName": "Abdallah Arslan",
         "shortDescription": "Reusable prompts, reviewed",
         "longDescription": "Browse 35 templates across eight categories or save your own. Deliberately fill missing fields or revise a draft using relevant context available to the host model. Review provided facts, labeled inferences, and missing details, then copy the final prompt. The server performs deterministic substitution and cannot independently read chat history. User data is owner-scoped; the source provides full export and explicit-confirm deletion from the app’s active database. Availability depends on the deployed version and host capabilities.",
+        "category": "Productivity",
+        "websiteURL": "https://aaarslan.com/prompt-library",
+        "supportURL": "https://aaarslan.com/prompt-library/support",
         "defaultPrompt": [
           "Open my Prompt Library.",
           "Help me fill a Project brief from this conversation.",
@@ -17,11 +24,16 @@
         "logo": "assets/icon.png",
         "composerIcon": "assets/icon.png"
       },
+      "publication": {
+        "countries": [],
+        "release_notes": "Initial public submission preparation for Prompt Library 1.2.1: 35 reusable templates across eight categories, visible field provenance, editable review and copy-only output, owner-scoped custom templates and drafts, paginated data export, explicitly confirmed active-library deletion, and MCP 2026-07-28 discovery with legacy compatibility. Directory availability depends on review and publication."
+      },
       "review": {
+        "commerce": false,
         "test_cases": {
           "positive": [
             {
-              "description": "P1. Read-only catalog discovery and template selection. Not run in submission host. Setup: authenticated dedicated review account and packaged v1.2.0 app; no draft should be created.",
+              "description": "P1. Read-only catalog discovery and template selection. Not run in submission host. Setup: authenticated dedicated review account and packaged v1.2.1 app; no draft should be created.",
               "prompt": "Show the templates in Prompt Library and open Project brief so I can inspect its fields. Don't fill or save a draft yet.",
               "tools_triggered": "list_templates, open_library",
               "expected_behavior": "Call list_templates with {} and open_library with {\"template_id\":\"sample_project_brief\"}. Return the 35 built-in templates across eight categories, plus any owned custom templates. Open the interactive library with Project brief selected and fields project_name, goal, audience, constraints, success_criteria. Do not call prepare_draft, update_draft, or save_template. No new draft is created. Unsupported UI rendering is a blocked host test, not a pass."
@@ -66,9 +78,6 @@
             }
           ]
         }
-      },
-      "publication": {
-        "release_notes": "Adds a 35-template catalog, redesigned category/search/review interface, explicit fill and revision modes, safer copy freshness checks, and self-service data export and confirmed deletion."
       }
     }
   }

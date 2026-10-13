@@ -16,3 +16,11 @@ Checked on 2026-10-13 with Node.js 24.19.0 against source v1.2.0.
 | Recorded demo | Not recorded | The walkthrough is a script; the overview asset is an illustration |
 
 Mock tests do not prove actual ChatGPT rendering, clipboard permission, or App directory acceptance. Repeat intended-host checks on the exact submitted version. No production data was deleted or exported as a fixture for this verification.
+
+## Mac submission-preparation follow-up, source v1.2.1
+
+Checked on 2026-10-13. Clean locked dependency installation, TypeScript, all 17 service tests, all three mock-host UI suites, production build, and isolated local HTTP/D1 checks passed. The HTTP smoke now checks MCP `server/discover`, protocol `2026-07-28`, negotiation and legacy compatibility alongside authentication/origin rejection, owner isolation, persistence, export, and explicitly confirmed deletion of fictional fixture records.
+
+The portable preparation ZIP was reopened and inspected: four files, a 512×512 PNG icon, no `.app.json`, no App declarations or private compatibility manifests, and no credential headers. The root manifest validates against Agent Plugins 1.0. The MCP transport validates against that base schema after separating the documented OpenAI OAuth extension (which the base schema predates). No client-registration mode or client credentials were inferred.
+
+The owner selected the individual publisher Abdallah Arslan, all supported countries, and a free release. Privacy and terms pages are prepared in the publisher's website checkout and passed its build and 40 static checks; they remain drafts until reviewed and published. The official portal is accessible on the Mac, but no upload or review submission has been made. The canonical Site's saved version 3 predates this preparation; authenticated intended-host behavior, a real recorded demonstration, dedicated reviewer access, scans, and owner attestations remain unverified.

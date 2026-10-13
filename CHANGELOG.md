@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 — Public submission preparation
+
+- Add `server/discover` and MCP 2026-07-28 negotiation while retaining the three supported legacy protocol versions.
+- Verify the current protocol through the local HTTP/D1 smoke test, alongside anonymous rejection, owner isolation, export, and confirmed deletion of fictional records.
+- Prepare portable submission metadata using the existing canonical MCP endpoint. Public listing, publisher declarations, reviewer access, recording, and approval remain separate verification steps.
+
 ## 1.2.0 — Source release preparation
 
 ### Added

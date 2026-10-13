@@ -2,7 +2,7 @@
 
 **Recording script only. Not recorded, uploaded, or verified.**
 
-Target: a 3–4 minute demonstration of the packaged v1.2.0 version in a supported ChatGPT host. Use a dedicated review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
+Target: a 3–4 minute demonstration of the packaged v1.2.1 version in a supported ChatGPT host. Use a dedicated review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
 
 ## Before recording
 
@@ -72,7 +72,7 @@ Use the P4 fictional JSON fixture. Ask for preview only, then show the returned 
 
 **Close:** “Choose, fill, review, and copy.”
 
-## Optional v1.2.0 data-controls segment
+## Optional v1.2.1 data-controls segment
 
 Only after the release UI is implemented and verified in the recording host, open **Your data** using a dedicated fictional-data account. Prepare the JSON export of both record kinds and show that the displayed, copyable output is complete. The UI does not automatically download a file. Open the deletion confirmation and show the stated scope, but cancel it. A deletion demonstration may be added only with explicit authorization to delete the disposable fixture account’s data. Never use real user data or imply that opening a confirmation deleted anything.
 

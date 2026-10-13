@@ -127,7 +127,7 @@ async function settle() { for (let i = 0; i < 20; i++) { await wait(); if (!$('#
     ...records.map((_, i) => i ? { kind: 'drafts', after_id: records[i - 1].draft.id } : { kind: 'drafts' }),
   ]);
   assert(!('renderedPrompt' in exported.drafts[0].draft), 'Exports aggregate stored records without derived rendering fields');
-  assert.equal(calls.filter(c => c.method === 'ui/initialize')[0].params.appInfo.version, '1.2.0');
+  assert.equal(calls.filter(c => c.method === 'ui/initialize')[0].params.appInfo.version, '1.2.1');
   click('#copy-data-export'); await wait();
   assert.equal(clipboardText, $('#data-export-json').value);
   clipboardBlocked = true;

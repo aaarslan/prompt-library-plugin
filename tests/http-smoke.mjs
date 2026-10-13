@@ -11,6 +11,14 @@ try{
  // Let the local development worker finish its startup reload before exercising POSTs.
  await new Promise(r=>setTimeout(r,1500));
  assert.equal((await rpc('initialize',{protocolVersion:'2025-06-18'})).data.result.serverInfo.name,'prompt-library');
+ const discovery=(await rpc('server/discover',{})).data.result;
+ assert.ok(discovery.supportedVersions.includes('2026-07-28'));
+ assert.deepEqual(discovery.capabilities,{tools:{}});
+ const latest=(await rpc('initialize',{protocolVersion:'2026-07-28'},undefined,{'MCP-Protocol-Version':'2026-07-28'})).data.result;
+ assert.equal(latest.protocolVersion,'2026-07-28');
+ assert.equal(latest.serverInfo.version,'1.2.1');
+ assert.equal((await rpc('initialize',{protocolVersion:'unsupported'})).data.result.protocolVersion,'2026-07-28');
+ assert.equal((await rpc('tools/list',{},undefined,{'MCP-Protocol-Version':'2026-07-28'})).data.result.tools.length,9);
  assert.equal((await rpc('tools/list',{})).data.result.tools.length,9);
  assert.equal((await rpc('tools/list',{},undefined,{'MCP-Protocol-Version':'bogus'})).status,400);
  assert.equal((await rpc('tools/list',{},undefined,{'Origin':'https://evil.example'})).status,403);
@@ -29,5 +37,5 @@ try{
  const removed=(await rpc('tools/call',{name:'delete_library_data',arguments:{confirmation:'DELETE MY LIBRARY DATA'}},'test_alice')).data.result.structuredContent;assert.ok(removed.deleted.drafts>=1);
  assert.equal((await rpc('tools/call',{name:'export_library',arguments:{kind:'drafts'}},'test_alice')).data.result.structuredContent.records.length,0);
  assert.equal((await rpc('tools/call',{name:'render_prompt',arguments:{draft_id:bobDraft.id}},'test_bob')).data.result.structuredContent.draft.id,bobDraft.id);
- console.log('HTTP smoke passed: initialize; 9 tools; UI resource; protocol and Origin rejection; anonymous 401; authenticated D1 read/write/reopen; cross-owner draft denial; paginated export; explicit-confirm atomic deletion preserving another synthetic owner.');
+ console.log('HTTP smoke passed: current discovery/negotiation and legacy initialization; 9 tools; UI resource; protocol and Origin rejection; anonymous 401; authenticated D1 read/write/reopen; cross-owner draft denial; paginated export; explicit-confirm atomic deletion preserving another synthetic owner.');
 }catch(e){console.error(e);console.error(log.slice(-6000));process.exitCode=1;}finally{child.kill('SIGTERM');setTimeout(()=>child.kill('SIGKILL'),1500).unref();}

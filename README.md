@@ -4,7 +4,7 @@
 
 Browse reusable templates, fill relevant details from your conversation, and review every field before copying the final prompt.
 
-[![Version 1.2.0](docs/badges/version.svg)](CHANGELOG.md)
+[![Version 1.2.1](docs/badges/version.svg)](CHANGELOG.md)
 [![MIT license](docs/badges/license.svg)](LICENSE)
 [![Review then copy](docs/badges/workflow.svg)](docs/architecture.md#review-and-copy)
 
@@ -70,7 +70,7 @@ This source was built for a platform-managed Sites environment. An independent d
 - [Review cases](docs/review-cases.md): five positive and three unsupported-request cases
 - [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
-This is v1.2.0 source-release and directory-submission preparation. A public ChatGPT directory listing is not yet available. Data controls must be verified in each intended deployment and submission host before being described as available there. Public source availability is separate from plugin submission, approval, and directory availability. These documents do not claim a public listing or review approval.
+This is v1.2.1 source-release and directory-submission preparation. A public ChatGPT directory listing is not yet available. Data controls must be verified in each intended deployment and submission host before being described as available there. Public source availability is separate from plugin submission, approval, and directory availability. These documents do not claim a public listing or review approval.
 
 ## License
 
