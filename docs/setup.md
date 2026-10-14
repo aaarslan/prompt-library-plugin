@@ -40,6 +40,14 @@ Before enabling this source, set the runtime variable `PROMPT_LIBRARY_LIMITS` to
 
 Choose values after verifying the existing deployment's included allowance and provider-enforced nonbilling limits. Application counters cannot guarantee zero charges or limit anonymous HTTP traffic. No plan upgrade or paid service is needed by this implementation. Rate limits use fixed minute buckets; requests rejected at one counter may still consume the other counter. Content writes are never retried automatically. Counters store opaque owner identifiers and counts, not prompt text; old buckets become eligible for bounded cleanup after two minutes and remain until subsequent requests remove them.
 
+The owner-authorized October 14 launch profile uses 100 templates, 200 drafts, and 2 MiB of logical content per workspace; 30 authenticated tool attempts and 10 mutating attempts per user per minute; and 60 tool attempts globally per minute. The two workspaces together permit up to 4 MiB of logical content per account, excluding database and index overhead. Set the runtime value through Sites, without adding credentials or production bindings to this repository:
+
+```json
+{"templatesPerWorkspace":100,"draftsPerWorkspace":200,"bytesPerWorkspace":2097152,"requestsPerMinute":30,"writesPerMinute":10,"globalRequestsPerMinute":60}
+```
+
+These are application operating caps, not published provider request allowances. The [Sites developer guide](https://learn.chatgpt.com/docs/sites) specifies 10 GB of D1 storage per Site. [OpenAI's beta policy](https://help.openai.com/en/articles/20001339-creating-and-using-chatgpt-sites) includes usage up to changeable account-wide plan limits; numeric request allowances were unavailable in the inspected account UI. Estimated incremental hosting is $0 within that included allowance. Existing subscription and domain costs are separate. This implementation has no model API, R2 storage, paid add-on, or automatic upgrade path; provider limits can restrict availability earlier than application caps.
+
 Local `test:http` supplies explicit fictional test budgets. For manual local development use ignored Wrangler `.dev.vars` configuration. Hosted configuration must use the existing deployment's supported runtime-variable workflow. Apply generated migrations through that same authorized workflow before activating this source. `0001` creates the usage table and both export indexes; it does not rewrite stored owner keys or prompt content. Remote migration and deployment are separate operations.
 
 ## Development

@@ -41,7 +41,7 @@ export async function POST(request:Request) {
   if (msg.method === 'resources/list') return ok({resources:[resource]});
   if (msg.method === 'resources/templates/list') return ok({resourceTemplates:[]});
   if (msg.method === 'resources/read') {
-    if (typeof params.uri !== 'string' || ![UI_URI,'ui://prompt-library/library-v1.html','ui://prompt-library/library-v2.html','ui://prompt-library/library-v3.html'].includes(params.uri)) return rpcError(msg.id,-32002,'Resource not found');
+    if (typeof params.uri !== 'string' || ![UI_URI,'ui://prompt-library/library-v1.html','ui://prompt-library/library-v2.html','ui://prompt-library/library-v3.html','ui://prompt-library/library-v4.html'].includes(params.uri)) return rpcError(msg.id,-32002,'Resource not found');
     return ok({contents:[{...resource,uri:params.uri,text:LIBRARY_HTML}]});
   }
   if (msg.method !== 'tools/call') return rpcError(msg.id,-32601,'Method not found');
