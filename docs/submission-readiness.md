@@ -9,20 +9,20 @@ This repository provides source, branding, review cases, and a recording script.
 - Five positive and three unsupported-request review cases
 - A walkthrough script using fictional examples
 - Source tests, mock-host UI tests, local HTTP/D1 smoke tooling, and deterministic packaging
-- Intended publisher: Abdallah Arslan, individual; identity verification remains a portal step
+- Publisher: Abdallah Arslan, individual; the selected organization now shows Verified
 - Explicit all-supported-countries targeting (`countries: []`) and free release (`commerce: false`), supplied by the owner
 - A separate portable upload builder that omits private App bindings and credentials, verifies its ZIP inventory, and refuses missing materials unless explicitly building a preparation draft
-- Existing product, support, privacy and terms URLs on aaarslan.com; recheck anonymous access and current data practices before submission
+- Existing product, support, privacy and terms pages verified in the public browser; the October 14 privacy update discloses usage counters and cleanup
 - Owner-approved adults-only eligibility (18+) in the app notice, policies and listing; the notice does not technically verify age
-- Canonical source version 6 was retrieved for workspace reconciliation; the 2.0.0 repository changes have not been deployed
+- Canonical Sites version 8 runs source 2.0.0 with UI resource v5 and the configured launch caps; the original App/plugin identity and owner-only audience are preserved
 
 ## Still required for submission
 
-1. Configure verified usage budgets, update the public privacy disclosure for usage counters, apply the generated migration, deploy through the existing canonical workflow, and verify source/schema parity. Verify the publisher identity and the supported publication route for the existing Sites-owned canonical App. Do not create a duplicate private plugin merely to wrap an existing Site.
+1. Resolve the real ChatGPT UI resource failure and confirm a public-review route that preserves the existing Sites-owned App. Tool reads succeed, but the host widget lookup returns HTTP 404 with HTML asset not found for resource v5 after deployment, tool refresh, and an unchanged-scope OAuth reconnect. Do not create a duplicate App to bypass this problem.
 2. Complete the real intended-host demonstration and reviewer access using an adult, dedicated test identity and fictional records. Keep private credentials in secure portal fields.
 3. Verify a reviewer-accessible recording URL, then add it to metadata and rebuild and inspect the final ZIP. Recheck all four populated public listing URLs anonymously against the actual deployed behavior.
 4. Connect and test the exact deployed application in the intended ChatGPT host and saved submission. Local tests and a successful canonical deployment do not establish actual host rendering, clipboard behavior, or reviewer access.
-5. Validate the final package and its imported metadata, resolve scans, and have the owner complete identity verification and legal/policy attestations in the supported portal. The illustration and walkthrough script remain preparation material, not a recorded demo.
+5. Validate the final package and its imported metadata, resolve scans, and have the owner complete legal/policy attestations in the supported portal. The illustration and walkthrough script remain preparation material, not a recorded demo.
 
 Upload, review submission, approval, and publishing are separate states. None is established by a successful source build or a public GitHub repository.
 

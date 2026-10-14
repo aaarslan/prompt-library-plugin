@@ -105,4 +105,18 @@ No hosting URL, recording evidence, reviewer credentials, or public-approval cla
 - Rehearse all five positive and three negative cases before capturing a success demonstration. Record failures and fallbacks honestly. The copy step must paste only the verified fictional result into an unsent destination.
 - Save the real recording, review playback, and host it through an existing authorized publisher destination. Add a URL to metadata only after the file exists and reviewer playback/access are verified. Native screen-capture permissions, if requested, require the owner's action.
 
-Current execution state: canonical version 6 source was retrieved for workspace reconciliation. The 2.0.0 repository changes have not been deployed. The dedicated recording identity, full intended-host rehearsal, recorded video, and reviewer access remain incomplete.
+Current execution state: source 2.0.0 is deployed as canonical Sites version 8 with resource v5 and the launch caps. Read-only Demo tool checks work. The real ChatGPT app card returns HTTP 404 with HTML asset not found after metadata refresh and OAuth reconnect. Resolve that failure before recording. The dedicated recording identity, full intended-host rehearsal, recorded video, and verified reviewer installation remain incomplete.
+
+## Remaining reviewer setup
+
+The existing personal Sites plugin cannot currently be directly shared with another ChatGPT user. Granting access to the Site alone does not install or share its plugin. Confirm an existing-App-compatible public review and test-installation path before inviting a reviewer or creating another connection. Preserve the original App and owner-only audience until a useful, narrow reviewer grant is authorized.
+
+After that path works, use a dedicated adult test account with fictional data, its own authentication, and access to both the plugin and Site. Check that sign-in and every case work without approval from the owner's mailbox, phone, MFA, or private network. Enter the exact login URL, account details, workspace, and sign-in steps only in secure portal fields. Never provide the owner's real credentials.
+
+For the recording, use the prepared 5–6 minute sequence above in a fresh test conversation. The existing publisher's static hosting can serve a real recording without adding a service if each video file is below Cloudflare's 25 MiB asset limit. Inspect the encoded file and playback before deployment; no demo URL is reserved or claimed until the actual file is published and anonymously playable. No paid video host or R2 bucket is needed.
+
+## Platform issue to resolve before recording
+
+Reproduce P1 with the existing installed plugin and Demo workspace. The tool returns the Project brief fields, but the interactive card fails. The host's widget lookup returns HTTP 404 with HTML asset not found for the advertised v5 resource, including after a tool refresh and completed OAuth reconnect. Ask OpenAI whether Sites publication registers MCP App HTML resources and how this existing personal Sites App can enter public review and receive a reviewer test installation without a duplicate App or paid-plan change. Include the App identifier from private plugin settings and the actual failed-card evidence in the support channel; do not add credentials, owner records, or private bindings to this public source.
+
+No support message, reviewer invitation, account creation, or successful recording is claimed by these preparation instructions.
