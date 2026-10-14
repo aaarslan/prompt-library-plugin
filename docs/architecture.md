@@ -22,7 +22,7 @@ prepare_draft / update_draft
 Validation → owner-scoped D1 storage → deterministic rendering
         │
         ▼
-User reviews → saves → checks latest version → copies
+User reviews → optionally saves → copies visible preview
 ```
 
 The final arrow ends at the clipboard or a selectable text fallback. There is no prompt-execution or prompt-submission tool.
@@ -30,7 +30,7 @@ The final arrow ends at the clipboard or a selectable text fallback. There is no
 ## Runtime components
 
 - **Transport:** a stateless JSON-RPC MCP endpoint at `POST /mcp`. Discovery exposes tool definitions and a static HTML resource. Tool calls require an authenticated owner identity. MCP 2026 results declare `resultType: "complete"`; cacheable discovery, list, and read results include `ttlMs: 0` and `cacheScope: "private"`. Request-body version metadata and its HTTP header must agree.
-- **UI:** a self-contained MCP App resource, `ui://prompt-library/library-v8.html`, served as `text/html;profile=mcp-app`. The earlier v1 through v7 resource URIs remain compatibility aliases. The URI changes with breaking UI contracts because hosts use it as a cache key.
+- **UI:** a self-contained MCP App resource, `ui://prompt-library/library-v10.html`, served as `text/html;profile=mcp-app`. The earlier v1 through v9 resource URIs remain compatibility aliases. Hosts use the versioned URI as a cache key. Policy links, the adult eligibility notice, and the workspace switch sit in the footer; the fictional-data banner appears only in Demo.
 - **Host bridge:** standard MCP Apps messages and host-proxied tool calls, with a legacy host-tool fallback. The iframe does not fetch private data directly using website cookies.
 - **Service:** `LibraryService` owns input validation, authorization-scoped queries, import previews, draft updates, and rendering.
 - **Storage:** D1 holds custom templates and drafts. The 35 built-in templates are static source data, not per-user database seed rows.

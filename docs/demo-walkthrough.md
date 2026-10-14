@@ -2,7 +2,9 @@
 
 **The updated real development demo is hosted at [the public demo page](https://aaarslan.com/prompt-library/demo/). Reviewer access and submission remain blocked on the existing-App publication route.**
 
-The final local artifact is `releases/prompt-library-demo-v18.mp4`, a silent 3:27 H.264 recording of source 2.0.0 on Sites version 18, 1554×974, about 2.9 MB. It uses the owner's explicitly authorized isolated Demo workspace with fictional records. It shows live unsaved copy, an addition, provenance, saved revision, selectable-text copy fallback, import preview, exact quoted-body snapshot preservation, and three scoped unsupported requests. Account navigation is cropped, pauses shortened, and playback accelerated 1.3×. The optional data-controls segment is not included. The unrestricted scheduling rehearsal was paused and excluded; its outcome is retained in the verification record.
+The current UI recording is `releases/prompt-library-demo-v19.mp4`: a silent 0:46 H.264 capture of source 2.0.0 on Sites version 19, 1788×1066, about 1.1 MB. It shows three unsaved fictional fields, missing placeholders, a reusable addition, the policy footer, and the actual copied text pasted into an unsent composer. No draft is saved. Continuous browser screen frames were captured through CUA; account navigation is cropped and idle gaps are shortened. The card's initial load failed; one explicit retry opened it before recording.
+
+The separately labeled v18 full workflow recording remains available on the same public page: `releases/prompt-library-demo-v18.mp4`, 3:27, covering provenance, saved revision/reopening, manual copy fallback, import preview, snapshot preservation, and three scoped unsupported requests. Those workflows are unchanged by v19. Both recordings use the owner's explicitly authorized isolated Demo workspace, not an external reviewer installation.
 
 Target: a 5–6 minute demonstration of the packaged v2.0.0 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
 
@@ -107,7 +109,7 @@ The recording URL is in submission metadata. No external reviewer access, submis
 - Rehearse all five positive and three negative cases before capturing a success demonstration. Record failures and fallbacks honestly. The copy step must paste only the verified fictional result into an unsent destination.
 - Save the real recording, review playback, and host it through an existing authorized publisher destination. Add a URL to metadata only after the file exists and reviewer playback/access are verified. Native screen-capture permissions, if requested, require the owner's action.
 
-Current execution state: source 2.0.0 is deployed as canonical Sites version 18 with resource v9 and the launch caps. The card works in Chrome and Safari. Development rehearsal covered catalog discovery, provenance, revision and reopening, import preview, saved snapshots, and the three unsupported requests. Independent readback confirmed Orchard version 2 and the unchanged `Hello River.` draft alongside the updated `Welcome {{person}}.` template. This is development-host evidence, not execution against a saved submission or a dedicated reviewer installation.
+Current execution state: source 2.0.0 is deployed as canonical Sites version 19 with resource v10 and the launch caps. The card works in Chrome and Safari. Development rehearsal covered catalog discovery, provenance, revision and reopening, import preview, saved snapshots, and the three unsupported requests. Independent readback confirmed Orchard version 2 and the unchanged `Hello River.` draft alongside the updated `Welcome {{person}}.` template. This is development-host evidence, not execution against a saved submission or a dedicated reviewer installation.
 
 ## Remaining reviewer setup
 
@@ -115,10 +117,10 @@ The existing personal Sites plugin cannot currently be directly shared with anot
 
 After that path works, use a dedicated adult test account with fictional data, its own authentication, and access to both the plugin and Site. Check that sign-in and every case work without approval from the owner's mailbox, phone, MFA, or private network. Enter the exact login URL, account details, workspace, and sign-in steps only in secure portal fields. Never provide the owner's real credentials.
 
-The recorded MP4 played through to the end in Chrome and passed a complete decode check. It fits the existing publisher's static-asset size limit. Hosting was not completed: the expired Wrangler login was followed by a timed-out authorization and then an explicit `Consent denied` result. No further authorization attempt or paid fallback was made. An isolated hosting candidate based on the existing public release matches the live entry assets and adds only the demo page and MP4. Its build and deployment dry run passed; it has not been deployed.
+The v18 MP4 passed complete decode and public end-to-end playback. The updated v19 clip passed complete decode and public end-to-end playback to 45.83 seconds with no media error. Existing Cloudflare OAuth works. The isolated hosting checkout preserves the existing public entry JavaScript and stylesheet and updates only demo assets on the same Worker and domains. No new paid service is required.
 
 ## Platform issue to resolve before submission
 
 The verified organization's Plugins page shows no existing Prompt Library entry. Its upload dialog accepts a ZIP and verified developer identity but exposes no canonical App reuse selector. The existing personal plugin's detail page offers private version management, not public submission. Public uploads cannot contain App bindings. Ask OpenAI for a supported route that attaches the existing Sites App and plugin to the verified publishing organization and enables reviewer installation without duplicating either identity. Preserve the owner-only audience until that route is established.
 
-The support follow-up draft records these blockers. It has not been sent. No reviewer invitation, account creation, directory submission, or public publication has occurred.
+The owner-authorized support follow-up was sent in the existing case. A fresh check on October 14 found no reply after that message. No reviewer invitation, account creation, directory submission, or public publication has occurred.

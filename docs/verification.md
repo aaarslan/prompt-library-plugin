@@ -1,5 +1,21 @@
 # Verification record
 
+## October 14 v19 cleanup and review materials
+
+The v19 cleanup was imported from the owning source commit `5f7eee3`. It moves audience/policy links and the explicit workspace switch into an accessible footer, hides the normal-library banner, retains the fictional Demo notice, and advances the UI resource to v10 while preserving aliases v1–v9. No authentication, data schema, production caps, or canonical App/plugin/Site identities changed.
+
+Typecheck, all 39 Node tests, all five existing UI suites, production build, local HTTP/D1 smoke including the v9 alias, and the public-source audit passed. The packaging regression now supplies its own missing-recording fixture instead of relying on release metadata staying incomplete. Authenticated `resources/read` returned 118,674 bytes as `text/html;profile=mcp-app`, SHA-256 `ac76a0df264566c9d2820126ee886166187b19c2aceea2de43eee9a2856564eb`, exactly matching this source.
+
+In real ChatGPT on Chrome, the first card load failed; one explicit Try again opened the v19 interface. The recording starts after that recovery. Three fictional Demo values and an addition updated the unsaved preview, and Copy prompt pasted the exact expected text with both remaining placeholders into an unsent composer. Nothing was saved or sent. At a 390-pixel viewport, document and scroll widths both measured 390; the footer remained keyboard reachable. The temporary viewport was reset. Safari evidence belongs to the earlier repair, not this v19 check.
+
+The fresh v19 UI recording is `releases/prompt-library-demo-v19.mp4`: 45.83 seconds, H.264, 1788×1066, 12 fps, 1,062,268 bytes, SHA-256 `b2963e0e7bdc0025c07036d8f0a9bcbacfc2cf58017311442c5dda0046c086b6`. It uses chronological continuous CUA screen captures, cropped account navigation, and shortened idle gaps. Full decode passed. Anonymous public HTTP returned 200 with video/mp4, and Chrome playback reached 45.83 seconds with ended=true and no media error. The public page also retains the separately labeled v18 full workflow recording; those cases were not repeated in v19.
+
+The isolated existing publisher checkout, commit `070d041`, passed its build, 40 static tests, and deployment dry run. The public entry JavaScript and stylesheet still match byte-for-byte. Deployment `cae17e5d-9131-4f85-bf22-212beb599f1c` uploaded only the updated demo page and new MP4 to the same static Worker and domains, without new services, bindings, plan changes, or paid resources.
+
+The rebuilt portable submission archive is `releases/v19-submission/prompt-library-v2.0.0-submission.zip`, SHA-256 `eb3db778dfcea90c6c58e5025ef656f91c66d7b51a72392a6a577047f1198017`. Its four-file inventory, current demo URL/release notes, five positive and three scoped negative cases, and secret scan passed. Material completeness does not establish submission readiness.
+
+OpenAI Support was checked in the existing signed-in case at October 14, 7:39:56 PM EDT. The latest entry remains the owner's authorized follow-up; no reply followed it. No new message was sent. Existing identity linking, external reviewer installation/sign-in, and plan-specific Sites hosting clarification remain pending. No duplicate App or reviewer invitation was created, and no ZIP upload or Directory submission occurred.
+
 ## October 14 v17 merge and v18 review fixes
 
 The v17 repair and a bounded repair of independent Muse Wonder Contributor findings were merged and pushed to main as `fc24f08`. Source 2.0.0 is deployed as Sites version 18 with resource v9. Authenticated `resources/read` returned 117,647 bytes with SHA-256 `de113546482352ebb02c62c268d3238f4ab3aee4859f832bf217780b871d9793`, matching the merged source. The original App/plugin/Site, owner-only audience, database bindings, and production caps are preserved.

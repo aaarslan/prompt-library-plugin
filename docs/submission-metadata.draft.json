@@ -28,7 +28,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Initial public submission preparation for Prompt Library 2.0.0: 35 built-ins, paginated catalog summaries, explicit Demo isolation, review/copy output, operator-configured usage budgets, complete data export, and confirmed active-workspace deletion. Deployment, review, and publication remain separate."
+        "release_notes": "Prompt Library 2.0.0 submission preparation, Sites v19: accessible policy/audience footer, explicit Demo workspace labels, normal-library default, live copy with optional saving, and resource v10 with prior aliases. The demo page includes a current v19 UI/copy recording and a separately labeled v18 full workflow recording. Existing App/plugin/Site identities and production caps are preserved. Directory submission and external reviewer access remain pending OpenAI guidance."
       },
       "review": {
         "commerce": false,

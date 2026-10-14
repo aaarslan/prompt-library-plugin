@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {mkdtempSync,readFileSync,rmSync} from 'node:fs';
+import {mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 
@@ -27,7 +27,11 @@ for damaged in [data[:24], data[:-5], data[:50] + bytes([data[50] ^ 1]) + data[5
 test('preparation packaging preserves normalized paths and does not claim missing release evidence',()=>{
  const output=mkdtempSync(join(tmpdir(),'prompt-library-package-'));
  try{
-  const args=['scripts/package-submission.py','--endpoint','https://fictional.example.invalid/mcp','--output',output];
+  const metadata=JSON.parse(readFileSync('docs/submission-metadata.draft.json','utf8'));
+  delete metadata.extensions['com.openai'].review.demo_recording_url;
+  const metadataPath=join(output,'metadata.json');
+  writeFileSync(metadataPath,JSON.stringify(metadata));
+  const args=['scripts/package-submission.py','--metadata',metadataPath,'--endpoint','https://fictional.example.invalid/mcp','--output',output];
   const refused=spawnSync('python3',args,{encoding:'utf8'});assert.notEqual(refused.status,0);assert.match(refused.stderr,/Missing verified recording/);
   const prepared=spawnSync('python3',[...args,'--draft'],{encoding:'utf8'});assert.equal(prepared.status,0,prepared.stderr);
   const report=JSON.parse(readFileSync(join(output,'submission-readiness.json'),'utf8'));

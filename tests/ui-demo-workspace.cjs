@@ -19,12 +19,13 @@ function input(selector,value){const el=$(selector);el.value=value;el.dispatchEv
  let original=JSON.stringify(sql.prepare('SELECT * FROM drafts WHERE owner_id = ?').all('fictional-local-owner'));
  dom=new JSDOM(LIBRARY_HTML,{runScripts:'dangerously',pretendToBeVisual:true,url:'https://local.test',beforeParse(w){Object.defineProperty(w,'parent',{value:host});w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false};w.addEventListener('error',e=>errors.push(e.message))}});
  await wait();emit(await service.call('open_library',{draft_id:existing.id}));
+ assert.equal($('#workspace-label').hidden,true,'Normal library has no demo banner');assert.equal($('#footer-workspace').textContent,'Your library');assert.equal($('#workspace-switch').closest('footer').className,'app-footer');assert.equal(dom.window.document.querySelector('header #workspace-switch'),null);assert.equal(dom.window.document.querySelectorAll('footer nav[aria-label=\"Policies and support\"] a').length,3);assert.match($('#eligibility-notice').textContent,/Adults only.*18\+/);assert.equal($('#eligibility-notice').closest('footer').className,'app-footer');
  assert.equal($('textarea[data-key="detail"]').value,'Retain this normal fixture unchanged');
  input('textarea[data-key="detail"]','Unsaved normal edit');click('#workspace-switch');await wait();assert.match($('#status').textContent,/Save your current edits/);assert.match($('#workspace-label').textContent,/Your library/);
  // Explicitly save the restored fixture before establishing the demo baseline.
  input('textarea[data-key="detail"]','Retain this normal fixture unchanged');click('#save-draft');await wait();
  original=JSON.stringify(sql.prepare('SELECT * FROM drafts WHERE owner_id = ?').all('fictional-local-owner'));
- click('#workspace-switch');await wait();assert.match($('#workspace-label').textContent,/Demo workspace.*fictional data only/);assert($('#workspace').hidden);assert($('#recent-drafts').hidden);assert(!dom.window.document.body.textContent.includes(personal.title));assert.equal($('#template-title').value,'');
+ click('#workspace-switch');await wait();assert.equal($('#workspace-label').hidden,false);assert.match($('#workspace-label').textContent,/Demo workspace.*fictional data only/);assert($('#workspace').hidden);assert($('#recent-drafts').hidden);assert(!dom.window.document.body.textContent.includes(personal.title));assert.equal($('#template-title').value,'');
  const demoStart=calls.length;
  emit(await service.call('open_library',{draft_id:existing.id}));await wait();assert($('#workspace').hidden,'Normal notification must be ignored in demo');
  emit({workspace:'library',deleted:{templates:1,drafts:1},templates:[],recentDrafts:[],deletionScope:'Normal fixture'});assert.match($('#workspace-label').textContent,/Demo workspace/);
@@ -41,6 +42,6 @@ function input(selector,value){const el=$(selector);el.value=value;el.dispatchEv
  const demoCalls=calls.slice(demoStart).filter(c=>c.method==='tools/call');assert(demoCalls.length>=7);assert(demoCalls.every(c=>c.params.arguments.workspace==='demo'));
  click('#done-data-dialog');click('#workspace-switch');await wait();assert.match($('#workspace-label').textContent,/Your library/);assert(!$('#recent-drafts').hidden);assert.equal($('#data-export-json').value,'');
  assert.equal(calls.filter(c=>c.method==='tools/call').at(-1).params.arguments.workspace,'library');
- assert.deepEqual(errors,[]);console.log('PASS: demo UI isolation, explicit labels, unsaved-edit guard, workspace-scoped fill/import/save/export/delete, stale cross-workspace notifications, cleared caches, and normal draft byte preservation (local simulated bridge).');
+ assert.deepEqual(errors,[]);console.log('PASS: normal default, discreet accessible policy footer, adults-only requirement, explicit demo entry, demo UI isolation, explicit labels, unsaved-edit guard, workspace-scoped fill/import/save/export/delete, stale cross-workspace notifications, cleared caches, and normal draft byte preservation (local simulated bridge).');
  dom.window.close();sql.close();
 })().catch(e=>{console.error(e);if(dom){console.error('UI error:', $('#error-text').textContent);dom.window.close()}sql.close();process.exit(1)});
