@@ -96,11 +96,9 @@ Rendering is a single substitution pass. Replacement text is not recursively int
 
 ## Review and copy
 
-The UI distinguishes provided, inferred, and missing values. Required missing fields, unsaved edits, or an unsaved field-bearing draft block the copy action. A fixed template with no fields can be copied directly.
+The UI distinguishes provided, inferred, and missing values. Copy uses the visible live preview, including unsaved edits and unresolved placeholders. Saving is optional; copy makes no server call and does not execute or submit the prompt.
 
-For a saved draft, copy first calls `render_prompt` and compares the returned identity, version, values, missing fields, and rendered text with the reviewed draft. A changed version is shown for review before another copy attempt. Automatic clipboard access depends on the host and browser; selected text provides a manual fallback.
-
-The tool can return incomplete rendered text for review. The UI's copy gate is a workflow control, not a restriction on every other MCP client.
+Unedited saved drafts use their stored rendering. Local edits use the same single-pass placeholder syntax and whitespace normalization as the server. Reusable fixed-text additions can be included in the preview or copied separately. New additions use the existing private template store and cannot contain fields. Automatic clipboard access depends on the host and browser; selected text provides a manual fallback. Verify the pasted text before claiming copy succeeded.
 
 ## Data controls in source v1.2.0
 

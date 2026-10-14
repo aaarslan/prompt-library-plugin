@@ -22,8 +22,8 @@ Version 2 returns paginated catalog summaries. Open a selected template for its 
 
 1. **Choose a starting point.** Search the catalog, filter by category, or open one of your saved templates.
 2. **Fill deliberately.** Choose **Fill missing fields** to use relevant context the host model can actually see. Choose **Revise with latest context** when existing details need to change.
-3. **Review the details.** Explicit facts, inferences, and missing fields stay visible. Edit values and save the draft.
-4. **Copy when ready.** The app checks the saved version before copying. It never runs or submits the completed prompt.
+3. **Review the details.** Explicit facts, inferences, and missing fields stay visible. Edit values; save the draft when you want to keep it.
+4. **Copy when ready.** Copy the live preview, including unsaved edits and visible placeholders. Saving is optional. The app never runs or submits the completed prompt.
 
 Engineering, AI & Agents, Research, Business, Product & Design, Writing, Planning, and Thinking are included. You can also create your own templates or preview a plain-text or JSON import before saving it.
 

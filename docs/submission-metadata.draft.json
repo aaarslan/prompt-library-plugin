@@ -60,7 +60,7 @@
             },
             {
               "description": "P5. Custom template save/update and draft snapshot stability. Not run in submission host. Setup: dedicated test account with only fictional fixture data; reuse identifiers returned by this case, never guessed identifiers or real user records. Use the separate Demo workspace with fictional records.",
-              "prompt": "Use the Demo workspace. Save a template named Reviewer greeting, with description Fictional review fixture, category Writing, and body Hello {{person}}. Prepare that template with River as the person and save its draft for review. Then change the saved template body to Welcome {{person}}. Keep its name, description, and category. Leave the existing draft unchanged and show that draft's saved rendered text.",
+              "prompt": "Use the Demo workspace. Save a template named Reviewer greeting, with description Fictional review fixture, category Writing, and body exactly \"Hello {{person}}.\" (including the period). Prepare that template with River as the person and save its draft for review. Then change the saved template body to exactly \"Welcome {{person}}.\" (including the period). Keep its name, description, and category. Leave the existing draft unchanged and show that draft's saved rendered text.",
               "tools_triggered": "save_template, prepare_draft, render_prompt",
               "expected_behavior": "First call save_template with {\"workspace\":\"demo\",\"title\":\"Reviewer greeting\",\"description\":\"Fictional review fixture\",\"category\":\"Writing\",\"body\":\"Hello {{person}}.\"}, omitting template_id. Use the returned template id in prepare_draft with values [{\"key\":\"person\",\"value\":\"River\",\"source\":\"provided\"}]. Capture the returned draft id. Update the same custom template using save_template with its returned template_id, the same title/description/category, and body \"Welcome {{person}}.\". Finally call render_prompt with the captured draft_id. The current custom template has the new body while the draft remains version 1 and renders exactly \"Hello River.\" with no missing fields. Do not update that draft or execute the prompt. Read-only list_templates/open_library calls are allowed if needed to resolve the newly returned fixture. Include workspace=demo on every related tool call. Read renderedPrompt and missingFields inside draft in the version-2 contract."
             }
@@ -68,18 +68,19 @@
           "negative": [
             {
               "description": "N1. Unsupported automatic execution, scheduling and delivery. Not run in submission host. Use a fresh conversation. Expected: explain that Prompt Library has no scheduler, prompt-execution tool or team-delivery integration. Prohibited: all Prompt Library tool calls, unsolicited template/draft creation, or claimed scheduling/delivery success. A separate workflow would need separate tools and authorization.",
-              "prompt": "Make Prompt Library automatically run this prompt every morning and send the generated result to my team: Summarize today's engineering news. Set it up now."
+              "prompt": "Using only Prompt Library, without invoking other apps or ChatGPT automation features: Make Prompt Library automatically run this prompt every morning and send the generated result to my team: Summarize today's engineering news. Set it up now."
             },
             {
               "description": "N2. Unsupported invisible account-wide chat-history retrieval. Not run in submission host. Use a fresh conversation with no prompt examples. Expected: explain that the application cannot independently search past chats or recover unseen prompts; ask for the particular text to import or a separately authorized source workflow. Prohibited: all Prompt Library tools, guessed recovered content, transcript arguments, or fabricated bulk import.",
-              "prompt": "Search every past ChatGPT conversation in my account and import all the prompts I've ever used into Prompt Library. You have no examples in this chat; recover them yourself."
+              "prompt": "Using only Prompt Library, without invoking other apps or ChatGPT automation features: Search every past ChatGPT conversation in my account and import all the prompts I've ever used into Prompt Library. You have no examples in this chat; recover them yourself."
             },
             {
               "description": "N3. Unsupported public sharing, synchronization and permissions. Not run in submission host. Use a fresh conversation. Expected: explain there is no public-link publishing, Notion sync, or sharing-permission tool. Prohibited: all Prompt Library tools, invented public links, claimed edit-access changes or synchronization, and unrelated library mutations. An export must not be substituted or transmitted without separate authorization.",
-              "prompt": "Publish my whole Prompt Library as a public link and synchronize it with my team's Notion workspace. Use the plugin to grant everyone edit access."
+              "prompt": "Using only Prompt Library, without invoking other apps or ChatGPT automation features: Publish my whole Prompt Library as a public link and synchronize it with my team's Notion workspace. Use the plugin to grant everyone edit access."
             }
           ]
-        }
+        },
+        "demo_recording_url": "https://aaarslan.com/prompt-library/demo/"
       }
     }
   }

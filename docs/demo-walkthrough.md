@@ -1,8 +1,8 @@
 # Demo walkthrough
 
-**A real development demo was recorded on October 14, 2026. Public hosting and reviewer access remain incomplete.**
+**The updated real development demo is hosted at [the public demo page](https://aaarslan.com/prompt-library/demo/). Reviewer access and submission remain blocked on the existing-App publication route.**
 
-The local release artifact is `releases/prompt-library-demo-v2.0.0.mp4`: a silent 5:02 H.264 recording, 1320×1066, about 2.4 MB. It shows the actual ChatGPT app with fictional Demo records. The owner explicitly authorized using the isolated Demo workspace for recording. Account navigation is cropped, pauses are shortened, and playback is accelerated 1.3×. The three negative-case results are revisited in their real conversations after correcting the capture target. The optional data-controls segment is not included. The sequence below remains a repeatable walkthrough; the recording uses direct chat prompts for filling and revision and verifies native selectable-text copy/paste into an unsent composer.
+The final local artifact is `releases/prompt-library-demo-v18.mp4`, a silent 3:27 H.264 recording of source 2.0.0 on Sites version 18, 1554×974, about 2.9 MB. It uses the owner's explicitly authorized isolated Demo workspace with fictional records. It shows live unsaved copy, an addition, provenance, saved revision, selectable-text copy fallback, import preview, exact quoted-body snapshot preservation, and three scoped unsupported requests. Account navigation is cropped, pauses shortened, and playback accelerated 1.3×. The optional data-controls segment is not included. The unrestricted scheduling rehearsal was paused and excluded; its outcome is retained in the verification record.
 
 Target: a 5–6 minute demonstration of the packaged v2.0.0 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
 
@@ -76,7 +76,7 @@ Use the P5 prompt from the review cases. Save Reviewer greeting with body `Hello
 
 ## 4:00–5:15 — Show all three unsupported-request boundaries
 
-**Prompt:** “Make Prompt Library automatically run this prompt every morning and send the generated result to my team: Summarize today's engineering news. Set it up now.”
+**Prompt:** “Using only Prompt Library, without invoking other apps or ChatGPT automation features: Make Prompt Library automatically run this prompt every morning and send the generated result to my team: Summarize today's engineering news. Set it up now.”
 
 **Show:** The actual explanation that scheduling, execution, and delivery are outside Prompt Library's capabilities. Confirm no Prompt Library tool claims to create that workflow.
 
@@ -98,7 +98,7 @@ Until those controls are available and tested in the recording host, do not clai
 4. Only then supply the real recording URL in submission metadata. Do not use this document's location, a mockup, or an unverified private link as a demo-recording URL.
 5. Keep the recording status **incomplete** until that URL is accessible and verified. Run and record the review cases separately against the saved submission version.
 
-The recording has no verified public URL yet. No reviewer credentials, submission, or approval are established by this walkthrough.
+The recording URL is in submission metadata. No external reviewer access, submission, or approval is established by this walkthrough.
 
 ## Ready-to-run recording setup
 
@@ -107,7 +107,7 @@ The recording has no verified public URL yet. No reviewer credentials, submissio
 - Rehearse all five positive and three negative cases before capturing a success demonstration. Record failures and fallbacks honestly. The copy step must paste only the verified fictional result into an unsent destination.
 - Save the real recording, review playback, and host it through an existing authorized publisher destination. Add a URL to metadata only after the file exists and reviewer playback/access are verified. Native screen-capture permissions, if requested, require the owner's action.
 
-Current execution state: source 2.0.0 is deployed as canonical Sites version 15 with resource v6 and the launch caps. The card works in Chrome and Safari. Development rehearsal covered catalog discovery, provenance, revision and reopening, import preview, saved snapshots, and the three unsupported requests. Independent readback confirmed Orchard version 2 and the unchanged `Hello River.` draft alongside the updated `Welcome {{person}}.` template. This is development-host evidence, not execution against a saved submission or a dedicated reviewer installation.
+Current execution state: source 2.0.0 is deployed as canonical Sites version 18 with resource v9 and the launch caps. The card works in Chrome and Safari. Development rehearsal covered catalog discovery, provenance, revision and reopening, import preview, saved snapshots, and the three unsupported requests. Independent readback confirmed Orchard version 2 and the unchanged `Hello River.` draft alongside the updated `Welcome {{person}}.` template. This is development-host evidence, not execution against a saved submission or a dedicated reviewer installation.
 
 ## Remaining reviewer setup
 
