@@ -1,5 +1,19 @@
 # Verification record
 
+## October 14 reviewer/demo follow-up, source 2.0.0
+
+The owner authorized recording with fictional records in their isolated Demo workspace. Live ChatGPT rehearsal showed the 35-template catalog, a partial Orchard draft with three provided values, one inference and one missing field, a saved version-2 revision with five provided values, reopening, native selectable-text copy/paste into an unsent composer, import preview without saving, and saved-template snapshot preservation. Independent authenticated reads confirmed Orchard version 2, the current greeting template body `Welcome {{person}}.`, and its unchanged version-1 draft rendering `Hello River.`. No normal-library writes or deletions were made.
+
+Three fresh conversations showed the expected limitations for scheduling/delivery, invisible chat-history retrieval, and public sharing/Notion synchronization. Their prompts restricted the host to Prompt Library; no Prompt Library tool cards or external workflow success claims appeared. These are development rehearsals, not tests against a saved submission or an external reviewer account.
+
+The actual silent recording is `releases/prompt-library-demo-v2.0.0.mp4`, 301.833 seconds, H.264, 1320×1066, 12 fps, 2,482,636 bytes. Account navigation is cropped, pauses are shortened, and playback is accelerated 1.3×. A capture-target problem was diagnosed during inspection; invalid buffered footage was excluded and the negative-case results were recaptured in their actual conversations. The local capture ledger retains the distinction. No fabricated UI or narrated success substitutes were used. Chrome playback reached the end without a media error, and a complete FFmpeg decode passed. Public playback remains unverified because hosting has not succeeded.
+
+The verified organization's portal displayed no existing Prompt Library entry. Its ZIP-upload dialog showed the individual identity `ABDALLAH RAMADAN ARSLAN` but no App reuse selector. The existing private plugin remains in development. No upload, identity conversion, reviewer grant, submission, or attestation was performed. An identity-preserving publication/reviewer path requires OpenAI clarification.
+
+The existing publisher's Cloudflare credential had expired. One authorization timed out; the fresh attempt returned `Consent denied`, and no further attempt or alternate credential was used. No paid services were added. An isolated hosting candidate from the existing public release `9b65319` matches the live entry script and stylesheet, adds only a demo page and the MP4, and passed build and deployment dry run. It remains undeployed. The publisher's separate current checkout was preserved.
+
+## Earlier verification history
+
 Checked on 2026-10-13 with Node.js 24.19.0 against source v1.2.0.
 
 | Check | Result | Scope |
@@ -13,7 +27,7 @@ Checked on 2026-10-13 with Node.js 24.19.0 against source v1.2.0.
 | Public-source scan | Passed | No known private bindings, credentials, database state, account URLs, runtime logs, or CI workflows |
 | Browser pixel/visual pass | Blocked | Chromium could not start under the available execution permissions |
 | Submitted-host review cases | Not run | Requires the exact saved submission and reviewer access |
-| Recorded demo | Not recorded | The walkthrough is a script; the overview asset is an illustration |
+| Recorded demo | Recorded locally on October 14 | Real development-host MP4; public hosting and reviewer access remain incomplete; see the latest follow-up below |
 
 Mock tests do not prove actual ChatGPT rendering, clipboard permission, or App directory acceptance. Repeat intended-host checks on the exact submitted version. No production data was deleted or exported as a fixture for this verification.
 

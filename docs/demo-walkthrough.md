@@ -1,6 +1,8 @@
 # Demo walkthrough
 
-**Recording script only. Not recorded, uploaded, or verified.**
+**A real development demo was recorded on October 14, 2026. Public hosting and reviewer access remain incomplete.**
+
+The local release artifact is `releases/prompt-library-demo-v2.0.0.mp4`: a silent 5:02 H.264 recording, 1320×1066, about 2.4 MB. It shows the actual ChatGPT app with fictional Demo records. The owner explicitly authorized using the isolated Demo workspace for recording. Account navigation is cropped, pauses are shortened, and playback is accelerated 1.3×. The three negative-case results are revisited in their real conversations after correcting the capture target. The optional data-controls segment is not included. The sequence below remains a repeatable walkthrough; the recording uses direct chat prompts for filling and revision and verifies native selectable-text copy/paste into an unsent composer.
 
 Target: a 5–6 minute demonstration of the packaged v2.0.0 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
 
@@ -96,7 +98,7 @@ Until those controls are available and tested in the recording host, do not clai
 4. Only then supply the real recording URL in submission metadata. Do not use this document's location, a mockup, or an unverified private link as a demo-recording URL.
 5. Keep the recording status **incomplete** until that URL is accessible and verified. Run and record the review cases separately against the saved submission version.
 
-No hosting URL, recording evidence, reviewer credentials, or public-approval claim is supplied by this script.
+The recording has no verified public URL yet. No reviewer credentials, submission, or approval are established by this walkthrough.
 
 ## Ready-to-run recording setup
 
@@ -105,7 +107,7 @@ No hosting URL, recording evidence, reviewer credentials, or public-approval cla
 - Rehearse all five positive and three negative cases before capturing a success demonstration. Record failures and fallbacks honestly. The copy step must paste only the verified fictional result into an unsent destination.
 - Save the real recording, review playback, and host it through an existing authorized publisher destination. Add a URL to metadata only after the file exists and reviewer playback/access are verified. Native screen-capture permissions, if requested, require the owner's action.
 
-Current execution state: source 2.0.0 is deployed as canonical Sites version 8 with resource v5 and the launch caps. Read-only Demo tool checks work. The real ChatGPT app card returns HTTP 404 with HTML asset not found after metadata refresh and OAuth reconnect. Resolve that failure before recording. The dedicated recording identity, full intended-host rehearsal, recorded video, and verified reviewer installation remain incomplete.
+Current execution state: source 2.0.0 is deployed as canonical Sites version 15 with resource v6 and the launch caps. The card works in Chrome and Safari. Development rehearsal covered catalog discovery, provenance, revision and reopening, import preview, saved snapshots, and the three unsupported requests. Independent readback confirmed Orchard version 2 and the unchanged `Hello River.` draft alongside the updated `Welcome {{person}}.` template. This is development-host evidence, not execution against a saved submission or a dedicated reviewer installation.
 
 ## Remaining reviewer setup
 
@@ -113,10 +115,10 @@ The existing personal Sites plugin cannot currently be directly shared with anot
 
 After that path works, use a dedicated adult test account with fictional data, its own authentication, and access to both the plugin and Site. Check that sign-in and every case work without approval from the owner's mailbox, phone, MFA, or private network. Enter the exact login URL, account details, workspace, and sign-in steps only in secure portal fields. Never provide the owner's real credentials.
 
-For the recording, use the prepared 5–6 minute sequence above in a fresh test conversation. The existing publisher's static hosting can serve a real recording without adding a service if each video file is below Cloudflare's 25 MiB asset limit. Inspect the encoded file and playback before deployment; no demo URL is reserved or claimed until the actual file is published and anonymously playable. No paid video host or R2 bucket is needed.
+The recorded MP4 played through to the end in Chrome and passed a complete decode check. It fits the existing publisher's static-asset size limit. Hosting was not completed: the expired Wrangler login was followed by a timed-out authorization and then an explicit `Consent denied` result. No further authorization attempt or paid fallback was made. An isolated hosting candidate based on the existing public release matches the live entry assets and adds only the demo page and MP4. Its build and deployment dry run passed; it has not been deployed.
 
-## Platform issue to resolve before recording
+## Platform issue to resolve before submission
 
-Reproduce P1 with the existing installed plugin and Demo workspace. The tool returns the Project brief fields, but the interactive card fails. The host's widget lookup returns HTTP 404 with HTML asset not found for the advertised v5 resource, including after a tool refresh and completed OAuth reconnect. Ask OpenAI whether Sites publication registers MCP App HTML resources and how this existing personal Sites App can enter public review and receive a reviewer test installation without a duplicate App or paid-plan change. Include the App identifier from private plugin settings and the actual failed-card evidence in the support channel; do not add credentials, owner records, or private bindings to this public source.
+The verified organization's Plugins page shows no existing Prompt Library entry. Its upload dialog accepts a ZIP and verified developer identity but exposes no canonical App reuse selector. The existing personal plugin's detail page offers private version management, not public submission. Public uploads cannot contain App bindings. Ask OpenAI for a supported route that attaches the existing Sites App and plugin to the verified publishing organization and enables reviewer installation without duplicating either identity. Preserve the owner-only audience until that route is established.
 
-No support message, reviewer invitation, account creation, or successful recording is claimed by these preparation instructions.
+The support follow-up draft records these blockers. It has not been sent. No reviewer invitation, account creation, directory submission, or public publication has occurred.

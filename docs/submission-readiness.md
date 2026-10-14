@@ -7,7 +7,7 @@ This repository provides source, branding, review cases, and a recording script.
 - Versioned source with MIT license and preserved third-party notices
 - Square 512×512 PNG icon and editable SVG
 - Five positive and three unsupported-request review cases
-- A walkthrough script using fictional examples
+- A walkthrough script and a real local 5:02 MP4 using fictional Demo records, recorded with the owner's explicit account-isolation exception
 - Source tests, mock-host UI tests, local HTTP/D1 smoke tooling, and deterministic packaging
 - Publisher: Abdallah Arslan, individual; the selected organization now shows Verified
 - Explicit all-supported-countries targeting (`countries: []`) and free release (`commerce: false`), supplied by the owner
@@ -20,10 +20,10 @@ This repository provides source, branding, review cases, and a recording script.
 ## Still required for submission
 
 1. Confirm the supported App Directory submission and reviewer-installation route for the existing Sites-owned App. Support recommends public review but has not guaranteed identity preservation through submission. The HTML resource failure is resolved; do not create a duplicate App.
-2. Complete the real intended-host demonstration and reviewer access using an adult, dedicated test identity and fictional records. Keep private credentials in secure portal fields.
-3. Verify a reviewer-accessible recording URL, then add it to metadata and rebuild and inspect the final ZIP. Recheck all four populated public listing URLs anonymously against the actual deployed behavior.
-4. Complete the full intended-host review cases against the saved submission. Card rendering and catalog reads are verified; clipboard, complete draft lifecycle, and dedicated reviewer access still need their submitted-host evidence.
-5. Validate the final package and its imported metadata, resolve scans, and have the owner complete legal/policy attestations in the supported portal. The illustration and walkthrough script remain preparation material, not a recorded demo.
+2. Establish a dedicated reviewer installation and sign-in path without using the owner's credentials. The local development demonstration is recorded, but reviewer access is not verified. Keep any credentials in secure portal fields.
+3. Host and verify the actual recording, then add its URL to metadata and rebuild and inspect the final ZIP. The local MP4 is about 2.4 MB and played through to the end in Chrome. An isolated hosting candidate matches the live publisher entry assets, adds only the demo page and MP4, and passed build and deployment dry run. Cloudflare returned `Consent denied`; deployment was stopped.
+4. Complete the review cases against the exact saved submission. Development rehearsal observed the expected draft lifecycle, native copy/paste, import preview, snapshot preservation, and unsupported-request boundaries. A private development installation does not establish submitted-host or external-reviewer access.
+5. Validate the final package and its imported metadata, resolve scans, and have the owner complete legal/policy attestations in the supported portal. The verified organization's portal currently exposes ZIP upload but no existing canonical App entry or reuse selector; no draft was created because identity preservation is unresolved.
 
 Upload, review submission, approval, and publishing are separate states. None is established by a successful source build or a public GitHub repository.
 

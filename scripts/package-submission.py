@@ -137,7 +137,7 @@ for kind, minimum in [('positive', 5), ('negative', 3)]:
         if any(not isinstance(case.get(field), str) or not case[field].strip() for field in fields):
             raise SystemExit(f'Incomplete {kind} review case.')
 if not review.get('demo_recording_url'):
-    gaps.append('Missing verified recording of the actual app in ChatGPT')
+    gaps.append('Missing verified recording URL accessible to reviewers')
 elif not https_url(review['demo_recording_url']):
     raise SystemExit('The demo recording needs a real HTTPS URL.')
 publication = openai['publication']
