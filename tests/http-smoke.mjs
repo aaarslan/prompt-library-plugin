@@ -38,7 +38,25 @@ try{
  const uiTool=(await rpc('tools/list',{})).data.result.tools.find(t=>t.name==='open_library');
  assert.equal(uiTool._meta.ui.resourceUri,resourceList[0].uri);
  const resource=(await rpc('resources/read',{uri:resourceList[0].uri})).data.result.contents[0];assert.equal(resource.uri,resourceList[0].uri);assert.equal(resource.mimeType,'text/html;profile=mcp-app');assert.ok(resource.text.includes('Prompt Library'));assert.ok(resource.text.includes('workspace-switch'));
- const legacyUi=(await rpc('resources/read',{uri:'ui://prompt-library/library-v1.html'})).data.result.contents[0];assert.equal(legacyUi.uri,'ui://prompt-library/library-v1.html');assert.ok(legacyUi.text.includes('Prompt Library'));
+ for(const version of [1,2,3,4,5]){const uri='ui://prompt-library/library-v'+version+'.html';const legacyUi=(await rpc('resources/read',{uri})).data.result.contents[0];assert.equal(legacyUi.uri,uri);assert.ok(legacyUi.text.includes('Prompt Library'));}
+ const modernMeta={'io.modelcontextprotocol/protocolVersion':'2026-07-28','io.modelcontextprotocol/clientCapabilities':{}};
+ for(const [method,params] of [['server/discover',{}],['tools/list',{}],['resources/list',{}],['resources/templates/list',{}],['resources/read',{uri:resourceList[0].uri}]]){
+  for(const headers of [{},{'MCP-Protocol-Version':'2026-07-28'}]){
+   const current=await rpc(method,{...params,_meta:modernMeta},undefined,headers);
+   assert.equal(current.status,200);assert.equal(current.data.result.resultType,'complete');assert.equal(current.data.result.ttlMs,0);assert.equal(current.data.result.cacheScope,'private');
+   if(method==='resources/read'){assert.equal(current.data.result.contents[0].text,resource.text);assert.deepEqual(Object.keys(current.data.result.contents[0]).sort(),['_meta','mimeType','text','uri']);}
+  }
+ }
+ for(const headers of [{},{'MCP-Protocol-Version':'2025-11-25'}]){
+  const legacy=(await rpc('resources/read',{uri:resourceList[0].uri},undefined,headers)).data.result;
+  for(const field of ['resultType','ttlMs','cacheScope'])assert.equal(Object.hasOwn(legacy,field),false);
+ }
+ assert.equal((await rpc('resources/read',{uri:resourceList[0].uri,_meta:modernMeta},undefined,{'MCP-Protocol-Version':'2025-11-25'})).status,400);
+ assert.equal((await rpc('resources/read',{uri:resourceList[0].uri,_meta:{'io.modelcontextprotocol/protocolVersion':'unsupported'}})).status,400);
+ assert.equal((await rpc('initialize',{protocolVersion:'2026-07-28'})).data.result.resultType,'complete');
+ const modernRead=(await rpc('tools/call',{name:'list_templates',arguments:{},_meta:modernMeta},'test_alice',{'MCP-Protocol-Version':'2026-07-28'})).data.result;
+ assert.equal(modernRead.resultType,'complete');assert.equal(modernRead.structuredContent.templates.length,35);assert.equal(Object.hasOwn(modernRead,'ttlMs'),false);assert.equal(Object.hasOwn(modernRead,'cacheScope'),false);
+ console.log('MCP 2026 wire contract passed: cache metadata, complete results, body/header agreement, legacy compatibility, and uncached tool results.');
  assert.equal((await rpc('tools/call',{name:'list_templates',arguments:{}})).status,401);
  const list=(await rpc('tools/call',{name:'list_templates',arguments:{}},'test_alice')).data.result;assert.equal(list.structuredContent.templates.length,35);assert.equal(list.structuredContent.catalogVersion,2);assert.equal(list.structuredContent.hasMore,false);assert.ok(list.structuredContent.templates.every(t=>!('body' in t)));assert.ok(list.content[0].text.length<300);
  const draft=(await rpc('tools/call',{name:'prepare_draft',arguments:{template_id:'sample_project_brief',values:[{key:'project_name',value:'Fictional Orchard',source:'provided'}]}},'test_alice')).data.result.structuredContent.draft;

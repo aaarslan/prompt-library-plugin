@@ -35,4 +35,14 @@ function click(selector){assert($(selector));assert(!$(selector).disabled);$(sel
  click('[data-action="back-library"]');assert($('#load-more-templates').hidden);assert.deepEqual(errors,[]);
  console.log('PASS: real-service summary paging beyond 200 records, explicit partial counts, cursor-loop rejection, full-body selection, and retained catalog state (local simulated bridge).');
  dom.window.close();
+ calls.length=0;
+ const selectedOnly=await service.call('open_library',{workspace:'demo',template_id:'sample_project_brief'});
+ dom=new JSDOM(LIBRARY_HTML,{runScripts:'dangerously',pretendToBeVisual:true,url:'https://local.test',beforeParse(window){Object.defineProperty(window,'parent',{value:host});window.HTMLElement.prototype.scrollIntoView=function(){};window.addEventListener('error',event=>errors.push(event.message));}});
+ dom.window.dispatchEvent(new dom.window.MessageEvent('message',{source:host,data:{jsonrpc:'2.0',method:'ui/notifications/tool-result',params:{structuredContent:selectedOnly}}}));
+ await new Promise(resolve=>setTimeout(resolve,650));await settle();
+ assert.equal($('#workspace-title').textContent,'Project brief');assert.equal($('#scope-list [data-scope="all"] .nav-count').textContent,'35');
+ const initialReads=calls.filter(call=>call.method==='tools/call');assert.deepEqual(initialReads.map(call=>call.params.name),['list_templates']);assert.equal(initialReads[0].params.arguments.workspace,'demo');
+ click('[data-action="back-library"]');assert.equal($('#scope-list [data-scope="all"] .nav-count').textContent,'35');assert.deepEqual(errors,[]);
+ console.log('PASS: selected-template launch preserves the editor and loads the complete Demo catalog with one read (local simulated bridge).');
+ dom.window.close();
 })().catch(error=>{console.error(error);if(dom)dom.window.close();process.exitCode=1;});
