@@ -2,7 +2,7 @@
 
 **The updated real development demo is hosted at [the public demo page](https://aaarslan.com/prompt-library/demo/). Reviewer access and submission remain blocked on the existing-App publication route.**
 
-The current UI recording is `releases/prompt-library-demo-v19.mp4`: a silent 0:46 H.264 capture of source 2.0.0 on Sites version 19, 1788×1066, about 1.1 MB. It shows three unsaved fictional fields, missing placeholders, a reusable addition, the policy footer, and the actual copied text pasted into an unsent composer. No draft is saved. Continuous browser screen frames were captured through CUA; account navigation is cropped and idle gaps are shortened. The card's initial load failed; one explicit retry opened it before recording.
+The current UI recording is `releases/prompt-library-demo-v19.mp4`: a silent 0:44 H.264 capture of source 2.0.0 on Sites version 19, 1788×1066, about 1.0 MB. It shows three unsaved fictional fields, missing placeholders, a reusable addition, the policy footer, and the actual copied text pasted into an unsent composer. No draft is saved. Continuous browser screen frames were captured through CUA; account navigation is cropped and idle gaps are shortened. The card's initial load failed; one explicit retry opened it before recording.
 
 The separately labeled v18 full workflow recording remains available on the same public page: `releases/prompt-library-demo-v18.mp4`, 3:27, covering provenance, saved revision/reopening, manual copy fallback, import preview, snapshot preservation, and three scoped unsupported requests. Those workflows are unchanged by v19. Both recordings use the owner's explicitly authorized isolated Demo workspace, not an external reviewer installation.
 
@@ -117,7 +117,7 @@ The existing personal Sites plugin cannot currently be directly shared with anot
 
 After that path works, use a dedicated adult test account with fictional data, its own authentication, and access to both the plugin and Site. Check that sign-in and every case work without approval from the owner's mailbox, phone, MFA, or private network. Enter the exact login URL, account details, workspace, and sign-in steps only in secure portal fields. Never provide the owner's real credentials.
 
-The v18 MP4 passed complete decode and public end-to-end playback. The updated v19 clip passed complete decode and public end-to-end playback to 45.83 seconds with no media error. Existing Cloudflare OAuth works. The isolated hosting checkout preserves the existing public entry JavaScript and stylesheet and updates only demo assets on the same Worker and domains. No new paid service is required.
+The v18 MP4 passed complete decode and public end-to-end playback. The updated v19 clip passed complete decode and public end-to-end playback to 44.42 seconds with no media error. Existing Cloudflare OAuth works. The isolated hosting checkout preserves the existing public entry JavaScript and stylesheet and updates only demo assets on the same Worker and domains. No new paid service is required.
 
 ## Platform issue to resolve before submission
 
