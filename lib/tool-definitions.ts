@@ -1,4 +1,4 @@
-export const UI_URI='ui://prompt-library/library-v6.html';
+export const UI_URI='ui://prompt-library/library-v9.html';
 const obj=(properties:Record<string,unknown>={},required:string[]=[])=>({type:'object',properties,required,additionalProperties:false});
 const workspaceSchema={type:'string',enum:['library','demo'],description:'Choose library (default) for your saved records, or demo for separate fictional demo records under the same signed-in identity.'};
 const str=(maxLength:number)=>({type:'string',maxLength});

@@ -36,7 +36,7 @@ The app, listing, and published policies are adults only (18+). The eligibility 
 
 Choose **Fill missing fields** in the app. Allow the actual host response to complete; do not overlay a fabricated response or edit out a material failure.
 
-**Show:** Provided, inferred, and missing field states. Expand the audience's inference evidence and the unresolved success-criteria field. Show that the prompt preview retains its missing placeholder and copy is blocked.
+**Show:** Provided, inferred, and missing field states. Expand the audience's inference evidence and the unresolved success-criteria field. Show that the preview retains its missing placeholder and can be copied without saving.
 
 **Say:** “The host supplies relevant named values. The server doesn't search my chat history or invent the missing detail.”
 
@@ -58,7 +58,7 @@ Choose **Revise with latest context**, optionally placing that same change reque
 
 Switch to the rendered prompt and choose **Copy prompt**.
 
-**Show:** The latest-saved-draft check and the result. Paste into an empty local text editor or an unsent composer only, without executing or submitting it. If automatic clipboard access is denied, show the selectable-text fallback and use the device's Copy command.
+**Show:** The current visible preview and the result. Change a field without saving and verify that the preview and copied text include that edit. Paste into an empty local text editor or an unsent composer only, without executing or submitting it. If automatic clipboard access is denied, show the selectable-text fallback and use the device's Copy command.
 
 **Say:** “This produces a prompt for me to review and use. Nothing is automatically run or sent.”
 

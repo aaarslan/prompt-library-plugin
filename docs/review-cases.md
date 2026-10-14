@@ -82,7 +82,7 @@ The evidence wording may differ, but it must be nonempty and explain the actual 
 - A new draft is returned at version 1. Capture its returned identifier as `DRAFT_FROM_P2`.
 - The UI shows three provided values, one inferred value with evidence, and one missing value.
 - `draft.missingFields` contains only `success_criteria`; `draft.renderedPrompt` retains `{{success_criteria}}`.
-- The prompt is not executed or submitted. Copy is unavailable while the required field remains missing.
+- The prompt is not executed or submitted. Copy includes the visible unresolved placeholder. Copying neither saves the draft nor calls a tool; verify the actual pasted text or selectable fallback.
 - No transcript or unrelated personal information is passed in arguments.
 
 ## P3 — Revise, reopen, and read the saved prompt
@@ -126,7 +126,7 @@ The evidence wording may differ, but it must be nonempty and explain the actual 
 - The successful update advances version 1 to 2. Reopen and render return version 2 and exactly the corrected field values.
 - All five fields are present, `draft.missingFields` is empty, and the audience is now provided rather than inferred.
 - The rendered text contains Orchard, the unchanged goal, the confirmed audience, the £80 constraint, and the stated success criterion. It contains no unresolved placeholders.
-- Choose **Copy prompt** manually. It reads the saved draft with `render_prompt` again; it copies only after the version is unchanged. If the host denies automatic clipboard access, use the displayed selectable-text fallback and record that behavior.
+- Choose **Copy prompt** manually. It copies the visible preview without saving or calling a tool. Unsaved edits must appear immediately in the preview and copied text. If the host denies automatic clipboard access, use the displayed selectable-text fallback and record that behavior.
 - Nothing is automatically submitted to the conversation. Clipboard behavior is a host-level observation, not established by a successful tool response alone.
 
 If a concurrent update is introduced, record a separate boundary test: a stale update must report the conflict, reopen the draft, and wait for renewed review before saving again. Do not silently count a conflicted write as passing the normal path.

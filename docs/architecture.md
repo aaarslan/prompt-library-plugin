@@ -30,7 +30,7 @@ The final arrow ends at the clipboard or a selectable text fallback. There is no
 ## Runtime components
 
 - **Transport:** a stateless JSON-RPC MCP endpoint at `POST /mcp`. Discovery exposes tool definitions and a static HTML resource. Tool calls require an authenticated owner identity. MCP 2026 results declare `resultType: "complete"`; cacheable discovery, list, and read results include `ttlMs: 0` and `cacheScope: "private"`. Request-body version metadata and its HTTP header must agree.
-- **UI:** a self-contained MCP App resource, `ui://prompt-library/library-v6.html`, served as `text/html;profile=mcp-app`. The earlier v1 through v5 resource URIs remain compatibility aliases. The URI changes with breaking UI contracts because hosts use it as a cache key.
+- **UI:** a self-contained MCP App resource, `ui://prompt-library/library-v8.html`, served as `text/html;profile=mcp-app`. The earlier v1 through v7 resource URIs remain compatibility aliases. The URI changes with breaking UI contracts because hosts use it as a cache key.
 - **Host bridge:** standard MCP Apps messages and host-proxied tool calls, with a legacy host-tool fallback. The iframe does not fetch private data directly using website cookies.
 - **Service:** `LibraryService` owns input validation, authorization-scoped queries, import previews, draft updates, and rendering.
 - **Storage:** D1 holds custom templates and drafts. The 35 built-in templates are static source data, not per-user database seed rows.

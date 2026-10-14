@@ -47,7 +47,7 @@ export async function POST(request:Request) {
   if (msg.method === 'resources/list') return cacheableOk({resources:[resource]});
   if (msg.method === 'resources/templates/list') return cacheableOk({resourceTemplates:[]});
   if (msg.method === 'resources/read') {
-    const recognized = typeof params.uri === 'string' && [UI_URI,'ui://prompt-library/library-v5.html','ui://prompt-library/library-v1.html','ui://prompt-library/library-v2.html','ui://prompt-library/library-v3.html','ui://prompt-library/library-v4.html'].includes(params.uri);
+    const recognized = typeof params.uri === 'string' && [UI_URI,'ui://prompt-library/library-v8.html','ui://prompt-library/library-v7.html','ui://prompt-library/library-v6.html','ui://prompt-library/library-v5.html','ui://prompt-library/library-v1.html','ui://prompt-library/library-v2.html','ui://prompt-library/library-v3.html','ui://prompt-library/library-v4.html'].includes(params.uri);
     if (!recognized) return rpcError(msg.id,-32002,'Resource not found');
     return cacheableOk({contents:[{uri:params.uri,mimeType:resource.mimeType,text:LIBRARY_HTML,_meta:resourceMeta}]});
   }
