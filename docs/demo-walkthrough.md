@@ -2,13 +2,14 @@
 
 **Recording script only. Not recorded, uploaded, or verified.**
 
-Target: a 5–6 minute demonstration of the packaged v1.2.1 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
+Target: a 5–6 minute demonstration of the packaged v2.0.0 version in a supported ChatGPT host. Use a dedicated adult (18+) review account and the fictional Orchard and Reviewer greeting fixtures from [the review cases](review-cases.md).
 
 ## Before recording
 
 The app, listing, and published policies are adults only (18+). The eligibility notice does not technically verify age. Use an existing adult test identity; keep owner data and account history out of the recording.
 
 
+- Select the Demo workspace and keep `workspace: "demo"` on every related tool call, including export and deletion. Verify the visible Demo label before entering fictional data.
 - Confirm the development installation points to the exact application version being prepared for review. Do not substitute a static mockup or another deployment.
 - Verify that the reviewer can access the intended application using a dedicated test identity. Keep credentials in secure reviewer-access fields, never in this document or a public package.
 - Close unrelated tabs and conversations, hide notifications, and remove personal data from the recording area.
@@ -19,7 +20,7 @@ The app, listing, and published policies are adults only (18+). The eligibility 
 
 **Say:** “Prompt Library helps turn reusable templates into a prompt you can inspect and copy.”
 
-**Prompt:** “Show the templates in Prompt Library and open Project brief so I can inspect its fields. Don't fill or save a draft yet.”
+**Prompt:** “Use the Demo workspace. Show the templates in Prompt Library and open Project brief so I can inspect its fields. Don't fill or save a draft yet.”
 
 **Show:** The real tool result and inline library. Briefly demonstrate search and a category filter. Open Project brief and pause on the five unfilled fields.
 
@@ -81,9 +82,9 @@ Repeat N2 and N3 from the review cases in fresh test conversations. Show the act
 
 **Close:** “Choose, fill, review, and copy.”
 
-## 5:15–5:45 — Optional v1.2.1 data-controls segment
+## 5:15–5:45 — Optional v2.0.0 data-controls segment
 
-Only after the release UI is implemented and verified in the recording host, open **Your data** using a dedicated fictional-data account. Prepare the JSON export of both record kinds and show that the displayed, copyable output is complete. The UI does not automatically download a file. Open the deletion confirmation and show the stated scope, but cancel it. A deletion demonstration may be added only with explicit authorization to delete the disposable fixture account’s data. Never use real user data or imply that opening a confirmation deleted anything.
+Only after the release UI is implemented and verified in the recording host, open **Demo data** using a dedicated fictional-data account. Prepare the JSON export of both record kinds and show that the displayed, copyable output is complete. The UI does not automatically download a file. Open the deletion confirmation and show the stated scope, but cancel it. A deletion demonstration may be added only with explicit authorization to delete the disposable fixture account’s data. Never use real user data or imply that opening a confirmation deleted anything.
 
 Until those controls are available and tested in the recording host, do not claim this segment was demonstrated or that the video covers them.
 
@@ -104,4 +105,4 @@ No hosting URL, recording evidence, reviewer credentials, or public-approval cla
 - Rehearse all five positive and three negative cases before capturing a success demonstration. Record failures and fallbacks honestly. The copy step must paste only the verified fictional result into an unsent destination.
 - Save the real recording, review playback, and host it through an existing authorized publisher destination. Add a URL to metadata only after the file exists and reviewer playback/access are verified. Native screen-capture permissions, if requested, require the owner's action.
 
-Current execution state: canonical version 4 is deployed and the authenticated, stateless synthetic import preflight passed. The dedicated recording identity, full intended-host rehearsal, recorded video, and reviewer access remain incomplete.
+Current execution state: canonical version 6 source was retrieved for workspace reconciliation. The 2.0.0 repository changes have not been deployed. The dedicated recording identity, full intended-host rehearsal, recorded video, and reviewer access remain incomplete.

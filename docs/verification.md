@@ -34,3 +34,27 @@ Both existing website domains returned all four listing pages publicly with HTTP
 The existing canonical Site was built and deployed as version 4 from the exact pushed source and deployment archive. Its native publication succeeded with MCP enabled, and its audience remains the owner alone. The nine-tool connection is available. A direct authenticated `preview_import` preflight with the fictional import-boundary fixture returned `previewOnly=true` and exactly `topic` and `audience`; no saved owner records were read or written. This is a protocol preflight, not a completed reviewer test or recorded demo.
 
 The developer portal currently blocks creation/upload until individual or business identity verification. The owner-selected individual identity requires the owner to complete that flow. No submission draft was uploaded. The actual synthetic-data recording, dedicated reviewer account/access, the exact saved-host review cases, portal scans, and owner legal attestations remain incomplete.
+
+## October 14 source remediation, version 2.0.0
+
+Verified locally on the specified Mac with Node.js 24.21.0. The checkout began at `bb0ddd5b736fd5d915e85ab092f3d25739ed5adb`. Canonical Sites version 6 source, commit `7330ab0c4080af7b15ef8cbf183314d5dfff186d`, was retrieved through the source workflow to reconcile demo isolation. Private project bindings and credentials were excluded. These repository changes have not been deployed, pushed, uploaded, or submitted.
+
+| Check | Observed result |
+|---|---|
+| Locked clean install | `npm ci --ignore-scripts` passed |
+| Compiler and service/body/package regressions | `npm run check` passed: 39 Node tests and five UI suites using fictional fixtures |
+| UI behavior | Real-service simulated bridge reaches all 211 custom templates, rejects repeated cursors, fetches selected bodies, waits for initial workspace context, and preserves normal records during demo operations |
+| Lint | Passed with no errors; one existing homepage `img` advisory remains |
+| Production build | `npm run build` passed |
+| Local D1 initialization | Both migrations applied to fresh local storage; HTTP smoke uses a separate fresh temporary database |
+| Local HTTP/D1 smoke | Discovery, nine schemas, resources, authenticated persistence, owner/workspace denial, quotas, exports, and confirmed deletion passed; the cancellation limit below remains |
+| Query plans | Generated owner/ID indexes avoid temporary sorting. The supplied two-owner, 1,000-row-per-table reproduction also passed without missing or foreign export records |
+| Migration generation | `npm run db:generate` reports no schema drift after the registered migration and snapshot |
+| PNG and portable packaging | Full 512×512 icon chunks and compressed pixels validated; corrupt fixtures rejected. Fictional endpoint preparation test retains normalized asset references and reports missing recording evidence |
+| Secrets | Gitleaks 8.30.1, verified release checksum: all five Git commits scanned without findings; sanitized working source also scanned before delivery |
+| Dependency audit | Production dependency audit has zero findings. Full audit retains eight high development-dependency findings from the single unpatched `braces` advisory through lint and Vinext tooling; critical and moderate findings were removed |
+| Public listing URLs | Anonymous HTTPS GETs returned 200 and actual product/support/privacy/terms content on all four existing aaarslan.com URLs. No redirects or account cookies were used |
+
+The oversized chunked HTTP request returns 413. In local Wrangler/Miniflare transport, the first subsequent POST can return `500: Network connection lost`; one explicit read-only ping confirms recovery. The smoke test logs that exception and never retries a mutation. Updating the local runtime did not eliminate this edge case. Related upstream transport reports include [cancelled-body handling](https://github.com/cloudflare/workers-sdk/pull/15028) and [unread-body proxy failures](https://github.com/cloudflare/workers-sdk/issues/15203). This does not establish production behavior; repeat that boundary test on the intended host before release.
+
+Before activation, apply `0001`, set operator-selected `PROMPT_LIBRARY_LIMITS` after verifying included provider capacity and nonbilling limits, and update the published privacy disclosure for the new opaque-owner usage counters and their cleanup behavior. The current published policy was read and still describes template/draft storage only. Recheck the deployed version and schema inventory, authentication bypass boundaries, real ChatGPT rendering/mobile/clipboard behavior, dedicated reviewer access, recording playback, final package and portal scans, and owner attestations. No paid resource, plan, audience, country, publisher, or commerce setting was changed.

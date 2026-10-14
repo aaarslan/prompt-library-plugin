@@ -23,7 +23,24 @@ npm run db:init:local
 npm run test:http
 ```
 
-`db:init:local` explicitly uses Wrangler's `--local` flag and accepts no arguments. It does not connect to a production database. The schema migration creates tables, so do not re-run it against an already initialized local test database. `test:http` starts and stops a local Worker, uses synthetic owner headers, and checks MCP discovery, UI resources, authentication failures, storage, and owner isolation.
+`db:init:local` explicitly uses Wrangler's `--local` flag and accepts no arguments. It does not connect to a production database. The schema migration creates tables, so do not re-run it against an already initialized local test database. `test:http` creates and removes its own fresh local D1 state, starts and stops a local Worker, uses synthetic owner headers, and checks MCP discovery, UI resources, authentication failures, storage, and owner isolation.
+
+## Usage limits
+
+Before enabling this source, set the runtime variable `PROMPT_LIBRARY_LIMITS` to a JSON object with all six positive integer fields. There are no production defaults. Missing or invalid configuration rejects library tools; discovery and static UI resources remain available.
+
+| Field | Budget |
+|---|---|
+| `templatesPerWorkspace` | Custom template records per authenticated workspace |
+| `draftsPerWorkspace` | Saved draft records per authenticated workspace |
+| `bytesPerWorkspace` | Combined UTF-8 bytes of template title/description/body/category and saved draft snapshot/field JSON |
+| `requestsPerMinute` | Authenticated tool attempts per user across both workspaces |
+| `writesPerMinute` | Mutating tool attempts per user across both workspaces |
+| `globalRequestsPerMinute` | Authenticated tool attempts across the deployment |
+
+Choose values after verifying the existing deployment's included allowance and provider-enforced nonbilling limits. Application counters cannot guarantee zero charges or limit anonymous HTTP traffic. No plan upgrade or paid service is needed by this implementation. Rate limits use fixed minute buckets; requests rejected at one counter may still consume the other counter. Content writes are never retried automatically. Counters store opaque owner identifiers and counts, not prompt text; old buckets become eligible for bounded cleanup after two minutes and remain until subsequent requests remove them.
+
+Local `test:http` supplies explicit fictional test budgets. For manual local development use ignored Wrangler `.dev.vars` configuration. Hosted configuration must use the existing deployment's supported runtime-variable workflow. Apply generated migrations through that same authorized workflow before activating this source. `0001` creates the usage table and both export indexes; it does not rewrite stored owner keys or prompt content. Remote migration and deployment are separate operations.
 
 ## Development
 

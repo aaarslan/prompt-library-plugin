@@ -8,6 +8,7 @@ import re
 import struct
 import urllib.parse
 import zipfile
+import zlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -27,6 +28,63 @@ def https_url(value):
         return False
     url = urllib.parse.urlsplit(value)
     return url.scheme == 'https' and bool(url.hostname) and not url.username and not url.password and not url.fragment
+
+def png_dimensions(data):
+    if data[:8] != b'\x89PNG\r\n\x1a\n' or len(data) > 5 * 1024 * 1024:
+        raise SystemExit('Icons must be PNG and at most 5 MiB.')
+    offset, chunks, compressed = 8, [], bytearray()
+    while offset < len(data):
+        if offset + 12 > len(data):
+            raise SystemExit('Truncated PNG chunk.')
+        length = struct.unpack('>I', data[offset:offset + 4])[0]
+        kind = data[offset + 4:offset + 8]
+        end = offset + 12 + length
+        if end > len(data) or zlib.crc32(data[offset + 4:end - 4]) != struct.unpack('>I', data[end - 4:end])[0]:
+            raise SystemExit('Invalid PNG chunk or checksum.')
+        payload = data[offset + 8:end - 4]
+        if kind == b'IHDR':
+            if chunks or length != 13:
+                raise SystemExit('Invalid PNG header.')
+            width, height, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', payload)
+        elif kind == b'IDAT':
+            if b'IHDR' not in chunks or (b'IDAT' in chunks and chunks[-1] != b'IDAT'):
+                raise SystemExit('Invalid PNG image-data order.')
+            compressed.extend(payload)
+        elif kind == b'IEND':
+            if length or end != len(data):
+                raise SystemExit('Invalid PNG end marker.')
+        elif kind[0] & 32 == 0 and kind != b'PLTE':
+            raise SystemExit('Unsupported critical PNG chunk.')
+        chunks.append(kind)
+        offset = end
+    if not chunks or chunks[0] != b'IHDR' or chunks[-1] != b'IEND' or not compressed:
+        raise SystemExit('Incomplete PNG.')
+    depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+    if not (0 < width <= 4096 and 0 < height <= 4096) or depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+        raise SystemExit('Invalid PNG image format or dimensions.')
+    if color == 3 and b'PLTE' not in chunks:
+        raise SystemExit('Indexed PNG needs a palette.')
+    channels = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}[color]
+    passes = [(0, 0, 1, 1)] if not interlace else [(0, 0, 8, 8), (4, 0, 8, 8), (0, 4, 4, 8), (2, 0, 4, 4), (0, 2, 2, 4), (1, 0, 2, 2), (0, 1, 1, 2)]
+    rows = []
+    for x, y, dx, dy in passes:
+        columns, lines = max(0, (width - x + dx - 1) // dx), max(0, (height - y + dy - 1) // dy)
+        if columns and lines:
+            rows.extend([1 + (columns * channels * depth + 7) // 8] * lines)
+    expected = sum(rows)
+    decoder = zlib.decompressobj()
+    try:
+        pixels = decoder.decompress(compressed, expected + 1)
+    except zlib.error:
+        raise SystemExit('Invalid PNG compressed pixels.')
+    if len(pixels) != expected or not decoder.eof or decoder.unused_data:
+        raise SystemExit('Invalid PNG pixel-data length.')
+    position = 0
+    for size in rows:
+        if pixels[position] > 4:
+            raise SystemExit('Invalid PNG row filter.')
+        position += size
+    return width, height
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--endpoint', required=True, help='Verified, existing HTTPS MCP endpoint; never a token URL')
@@ -90,18 +148,18 @@ for field, minimum in [('logo', 256), ('composerIcon', 48), ('logoDark', 256), (
     rel = listing.get(field)
     if not rel and field.endswith('Dark'):
         continue
-    if not rel or pathlib.PurePosixPath(rel).is_absolute() or '..' in pathlib.PurePosixPath(rel).parts:
-        raise SystemExit(f'Invalid contained icon path: {field}')
-    path = ROOT / rel
-    if path.is_symlink():
+    if not isinstance(rel, str) or not rel.startswith('./assets/') or '\\' in rel or '..' in pathlib.PurePosixPath(rel).parts:
+        raise SystemExit(f'Invalid contained icon path: {field}; use ./assets/...')
+    relative = pathlib.PurePosixPath(rel).as_posix()
+    path = ROOT / relative
+    if any(parent.is_symlink() for parent in [path, *path.parents]) or not path.is_file() or not path.resolve().is_relative_to(ROOT):
         raise SystemExit('Icons must be contained regular files.')
     data = path.read_bytes()
-    if data[:8] != b'\x89PNG\r\n\x1a\n' or len(data) > 5 * 1024 * 1024:
-        raise SystemExit('Icons must be PNG and at most 5 MiB.')
-    width, height = struct.unpack('>II', data[16:24])
+    width, height = png_dimensions(data)
     if width != height or width < minimum:
         raise SystemExit(f'Invalid dimensions for {field}: {width} x {height}')
-    files[rel] = data
+    files[relative] = data
+
 mcp = {
     '$schema': 'https://agent-plugins.org/schemas/1.0.0/mcp.schema.json',
     'mcpServers': {

@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0: bounded catalog and usage controls
+
+- Reconcile the canonical Demo workspace across service, schemas, UI, export, and deletion.
+- Stream JSON requests with a 100,000-byte limit and reject invalid UTF-8.
+- Return catalog version 2 summaries in pages of 25 custom templates, with all built-ins on the first page. Read bodies and fields through `open_library`; selection and saves no longer resend the catalog.
+- Return concise tool text alongside structured results. Read rendered text and missing fields from `draft.renderedPrompt` and `draft.missingFields`; redundant root fields are removed.
+- Add generated owner/ID indexes and database-backed usage counters. Operator-configured request, write, record, and logical UTF-8 storage budgets are required before enabling tools.
+- Confirm template update affected-row counts and preserve draft version checks.
+- Validate complete PNG chunks and compressed pixels during portable packaging; normalize icon paths.
+- Update vulnerable dependency patches without changing the framework or hosting identity. Remaining upstream development-tool advisories are recorded in verification.
+
+This source has not been deployed or submitted.
+
 ## 1.2.1 — Public submission preparation
 
 - Add `server/discover` and MCP 2026-07-28 negotiation while retaining the three supported legacy protocol versions.

@@ -1,5 +1,5 @@
 const {JSDOM}=require('jsdom');
-const fs=require('fs'),assert=require('assert');
+const assert=require('assert');
 const html=require('../lib/library-ui.ts').LIBRARY_HTML;
 const templates=[{id:'brief',title:'Project kickoff brief',description:'Turn an idea into a clear plan.',category:'Planning',sample:true,body:'Create a brief for {{project}}. Audience: {{audience}}. Goal: {{goal}}',fields:[{key:'project',label:'Project',required:true},{key:'audience',label:'Audience',required:true},{key:'goal',label:'Goal',required:true}]},{id:'email',title:'Follow up',description:'',category:'Writing',sample:true,body:'Write to {{recipient}} about {{topic}}',fields:[{key:'recipient',label:'Recipient',required:true},{key:'topic',label:'Topic',required:true}]}];
 const drafts={},calls=[],errors=[];let dom,seq=0,copyText='';const envelope=d=>({content:[],structuredContent:d});

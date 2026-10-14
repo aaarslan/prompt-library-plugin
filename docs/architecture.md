@@ -30,7 +30,7 @@ The final arrow ends at the clipboard or a selectable text fallback. There is no
 ## Runtime components
 
 - **Transport:** a stateless JSON-RPC MCP endpoint at `POST /mcp`. Discovery exposes tool definitions and a static HTML resource. Tool calls require an authenticated owner identity.
-- **UI:** a self-contained MCP App resource, `ui://prompt-library/library-v3.html`, served as `text/html;profile=mcp-app`. The earlier v1 and v2 resource URIs remain compatibility aliases.
+- **UI:** a self-contained MCP App resource, `ui://prompt-library/library-v4.html`, served as `text/html;profile=mcp-app`. The earlier v1, v2, and v3 resource URIs remain compatibility aliases.
 - **Host bridge:** standard MCP Apps messages and host-proxied tool calls, with a legacy host-tool fallback. The iframe does not fetch private data directly using website cookies.
 - **Service:** `LibraryService` owns input validation, authorization-scoped queries, import previews, draft updates, and rendering.
 - **Storage:** D1 holds custom templates and drafts. The 35 built-in templates are static source data, not per-user database seed rows.
@@ -39,7 +39,7 @@ The final arrow ends at the clipboard or a selectable text fallback. There is no
 
 | Tool | Important arguments | Effect |
 | --- | --- | --- |
-| `list_templates` | `{}` | Read owned templates and built-ins |
+| `list_templates` | Optional `after_id` | Read a page of owned template summaries and first-page built-ins |
 | `open_library` | Optional `template_id` or `draft_id` | Read library, selection, or an owned saved draft |
 | `save_template` | `title`, `description`, `body`; optional `category`, `template_id` | Create a template or update an owned template |
 | `preview_import` | `text` | Validate text or JSON without saving |
@@ -70,7 +70,13 @@ A custom template contains its title, description, body, category, owner, and ti
 
 Every data-bearing custom-template or draft query is scoped by owner. Updates include the owner predicate; draft updates also include the expected version. Static built-ins are shared and read-only. Saving an edited built-in requires creating a new custom copy.
 
-The service lists up to 200 recently updated custom templates and the UI receives up to 12 recent drafts. These are current implementation limits, not claims of an unlimited library.
+Catalog version 2 returns summaries containing `id`, `title`, `description`, `category`, and `sample`. The first page contains up to 25 custom templates ordered by ID and all 35 built-ins. Later pages contain only custom templates. Follow `nextCursor` as `after_id` until `hasMore=false`; `afterId` identifies the requested page. Bodies and fields are fetched with a selected `open_library` call. Selection returns only the selected record and up to 12 recent draft summaries; `save_template` returns only the saved template. The UI marks incomplete discovery and search, offers Load more templates, and guards repeated cursors.
+
+This is a versioned contract change from 1.x full catalog rows. Refresh tool schemas and UI when moving to 2.0.0. Rendered output and missing fields are nested in `draft`; the root duplicates are removed. Concise `content` text accompanies full `structuredContent`, following the [tool-result contract](https://developers.openai.com/plugins/reference#tool-results).
+
+Every tool accepts optional `workspace: library|demo`, defaulting to `library`. The demo owner key uses a reserved control-character prefix that authenticated owner IDs cannot contain. UI follow-up, fill requests, export, deletion, and incoming notifications preserve or validate that workspace. Normal and demo data remain separate; built-ins are shared. Quotas apply separately to stored workspace content, while request and write budgets are shared by the authenticated identity across workspaces.
+
+Writes use atomic SQL predicates for record counts and combined UTF-8 template/draft content bytes. Template updates confirm affected rows; concurrent deletion returns not-found. Drafts also enforce optimistic versions. Logical content budgets exclude SQLite/index overhead and do not control provider billing. The [required operator configuration](setup.md#usage-limits) must reflect verified included capacity.
 
 ### Critical authentication assumption
 

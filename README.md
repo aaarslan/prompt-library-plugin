@@ -6,11 +6,13 @@ Prompt Library is intended only for adults aged 18 or older. The eligibility not
 
 Browse reusable templates, fill relevant details from your conversation, and review every field before copying the final prompt.
 
-[![Version 1.2.1](docs/badges/version.svg)](CHANGELOG.md)
+[![Version 2.0.0](docs/badges/version.svg)](CHANGELOG.md)
 [![MIT license](docs/badges/license.svg)](LICENSE)
 [![Review then copy](docs/badges/workflow.svg)](docs/architecture.md#review-and-copy)
 
 **35 built-in templates · 8 categories · 9 MCP tools**
+
+Version 2 returns paginated catalog summaries. Open a selected template for its body and fields. The UI labels partial results and can load every saved template. The separate Demo workspace uses fictional records under the same authenticated identity.
 
 ![Prompt Library interface illustration showing category navigation and template cards](assets/library-overview.png)
 
@@ -57,6 +59,8 @@ npm run check
 npm run build
 ```
 
+Configure operator-selected usage limits before enabling library tools, as described in [setup](docs/setup.md#usage-limits). Missing limits fail closed; they have no implicit production defaults.
+
 The service tests use fictional fixtures and an in-memory SQLite adapter. They do not validate a live ChatGPT connection or production D1 deployment. See [setup and local smoke testing](docs/setup.md) and [review cases and evidence](docs/review-cases.md).
 
 ### Hosting boundary
@@ -72,7 +76,7 @@ This source was built for a platform-managed Sites environment. An independent d
 - [Review cases](docs/review-cases.md): five positive and three unsupported-request cases
 - [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
-This is v1.2.1 source-release and directory-submission preparation. A public ChatGPT directory listing is not yet available. Data controls must be verified in each intended deployment and submission host before being described as available there. Public source availability is separate from plugin submission, approval, and directory availability. These documents do not claim a public listing or review approval.
+This is v2.0.0 source-release and directory-submission preparation. A public ChatGPT directory listing is not yet available. Data controls must be verified in each intended deployment and submission host before being described as available there. Public source availability is separate from plugin submission, approval, and directory availability. These documents do not claim a public listing or review approval.
 
 ## License
 

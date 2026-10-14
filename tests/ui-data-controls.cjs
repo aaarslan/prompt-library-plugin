@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports -- CommonJS mock harness matches the existing UI tests. */
 // No live requests: every export, delete, and library read below is handled by this in-memory mock.
 const { JSDOM } = require('jsdom');
 const assert = require('node:assert/strict');
@@ -123,11 +122,11 @@ async function settle() { for (let i = 0; i < 20; i++) { await wait(); if (!$('#
   assert.equal(exported.drafts.at(-1).template.id, 'builtin', 'Includes original template snapshot');
   assert(!$('#data-export-result').hidden);
   assert.deepEqual(JSON.parse(JSON.stringify(toolCalls('export_library').map(call => call.params.arguments))), [
-    ...customs.map((_, i) => i ? { kind: 'templates', after_id: customs[i - 1].id } : { kind: 'templates' }),
-    ...records.map((_, i) => i ? { kind: 'drafts', after_id: records[i - 1].draft.id } : { kind: 'drafts' }),
+    ...customs.map((_, i) => i ? { kind: 'templates', after_id: customs[i - 1].id, workspace: 'library' } : { kind: 'templates', workspace: 'library' }),
+    ...records.map((_, i) => i ? { kind: 'drafts', after_id: records[i - 1].draft.id, workspace: 'library' } : { kind: 'drafts', workspace: 'library' }),
   ]);
   assert(!('renderedPrompt' in exported.drafts[0].draft), 'Exports aggregate stored records without derived rendering fields');
-  assert.equal(calls.filter(c => c.method === 'ui/initialize')[0].params.appInfo.version, '1.2.1');
+  assert.equal(calls.filter(c => c.method === 'ui/initialize')[0].params.appInfo.version, '2.0.0');
   click('#copy-data-export'); await wait();
   assert.equal(clipboardText, $('#data-export-json').value);
   clipboardBlocked = true;
@@ -189,7 +188,7 @@ async function settle() { for (let i = 0; i < 20; i++) { await wait(); if (!$('#
   assert.equal($('#workspace').innerHTML, pendingBefore, 'No incoming result can alter a deletion in progress');
   pendingDelete(); pendingDelete = null; await settle();
   assert.equal(toolCalls('delete_library_data').length, 2, 'Repeated click cannot duplicate deletion');
-  assert.deepEqual(JSON.parse(JSON.stringify(toolCalls('delete_library_data').at(-1).params.arguments)), { confirmation: 'DELETE MY LIBRARY DATA' });
+  assert.deepEqual(JSON.parse(JSON.stringify(toolCalls('delete_library_data').at(-1).params.arguments)), { confirmation: 'DELETE MY LIBRARY DATA', workspace: 'library' });
   assert.equal($('#workspace').innerHTML, '', 'Even hidden prompt DOM is removed');
   assert($('#workspace').hidden);
   assert(!$('#discover').hidden);
