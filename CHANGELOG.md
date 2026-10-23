@@ -70,3 +70,10 @@ This source has not been deployed or submitted.
 ### Verification note
 
 The 13 local service/catalog regression tests passed during documentation preparation on 2026-10-13. Submission-host review cases remain **Not run** in this evidence set. This version entry does not claim a public listing, approval, or publication date.
+
+
+### Dedicated component origin
+
+- Declare the existing deployment origin in resource-content `_meta.ui.domain`, as required for UI submission. Keep CSP network allowlists empty and preserve App identity, authentication and audience.
+- Advance the UI metadata cache key to v12 while preserving v1–v11 resource aliases.
+- HTTP coverage checks matching resource-list/read origins, unchanged CSP and the v11 alias.
