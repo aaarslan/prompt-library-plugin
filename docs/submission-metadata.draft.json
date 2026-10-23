@@ -28,7 +28,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Prompt Library 2.1.0 preparation: explicit read-only template previews with variable lists, gallery sorting, and optional contextual filling. Live ChatGPT resource loading, a current reviewer-accessible demo recording, canonical submission identity and reviewer access remain unverified. This is not a submitted release."
+        "release_notes": "Prompt Library 2.1.0 preparation: read-only template previews and variable lists, gallery sorting, optional contextual filling, and individual quality review of all 35 built-ins with 10 proportional-rigor/outcome-ownership improvements. The existing owner-private Site runs version 20 with resource v11. Latest-gallery ChatGPT acceptance, current demo recording, canonical public-submission mapping and dedicated reviewer access remain unverified. This is not a submitted release."
       },
       "review": {
         "commerce": false,

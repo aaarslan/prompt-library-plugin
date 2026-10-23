@@ -1,5 +1,18 @@
 # Verification record
 
+## October 23 private deployment and host compatibility follow-up
+
+The existing owner-private Site deployed source `29c157a8e22dccf2faf128fc25b6ccbb2c3128b5` successfully as version 20, retaining environment revision 1, MCP, the original App/plugin and one-owner audience with no external visitors. The approved temporary source credential was used only through the official source helper and expired; it was not printed or persisted.
+
+All 35 built-in prompts were read individually: 25 retained and 10 revised for complete requested outcomes, proportionate rigor, or reduced mandatory ceremony. The per-template decisions and before/after wording are in [the catalog review](catalog-review-2026-10-23.json). IDs and placeholder keys are unchanged. Forty Node tests and all five UI suites passed, including a new regression proving that a saved built-in draft keeps its original snapshot when the catalog body changes.
+
+Authenticated resource retrieval through the existing connection returned v11 as `text/html;profile=mcp-app`, 125,123 bytes, SHA-256 `d47d3609e7bc1076e222b206c0c5d7b92f7a60e137fcf815884c6d36ebcea18c`, exactly matching the deployed source. The v10 alias returned the same current HTML. The resource has empty network/resource CSP allowlists and no external script bundles. This establishes resource transport/content, not successful rendering of the new view.
+
+A retry in real ChatGPT web rendered the old gallery, establishing that this remote Site is not generally desktop-only. Its installed tool catalog still advertises v10, and the rendered cached view was old. The existing App’s supported Refresh tools action did not advance that observed URI. A fresh invocation again failed its first load. Same-account Reconnect was blocked by automatic approval review and did not execute; latest-gallery host acceptance remains unverified. Native Computer Use access was denied by the automation layer, so no native-client compatibility result is claimed. No protocol aliases, permission grants, or App identities were changed to work around these results.
+
+The deployed source omits `_meta.ui.domain`. Current official UI reference documentation requires a unique domain for submission but supplies a development default, so this is a submission gap rather than a demonstrated cause of the initial loading failure. The current portfolio `dev` tree contains no demo route or MP4 assets; its route parser returns not-found for the documented demo URL. No replacement recording is claimed. The proper initial-public-submission ownership route for this private Sites-owned App still needs verification; absence of a selector alone is not proof that it is unsupported.
+
+
 ## October 23 gallery candidate, source 2.1.0 — not deployed or submitted
 
 The candidate adds read-only original-template previews with variable lists, title/category sorting, and optional contextual filling in an expandable section. The existing owner/Demo boundary, import preview, draft snapshots, optimistic version checks, and live unsaved copy remain unchanged. UI resource v11 retains v1–v10 aliases.

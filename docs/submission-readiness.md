@@ -1,10 +1,10 @@
 # Directory submission preparation
 
-## October 23 gallery candidate — not submitted
+## October 23 gallery candidate — private deployment complete, not submitted
 
-Local source 2.1.0 adds explicit previews and gallery sorting. Current read-only Creator inspection confirms the existing private App-backed plugin and its unchanged binding. The existing Sites publication remains version 19, source 2.0.0; the candidate has not been deployed.
+Local source 2.1.0 adds explicit previews and gallery sorting. Current read-only Creator inspection confirms the existing private App-backed plugin and its unchanged binding. The existing owner-private Site now runs version 20, source 2.1.0. The current App/plugin identity and environment revision are preserved.
 
-The current ChatGPT rehearsal returned catalog data but its app card remained blank, then displayed “This response couldn’t load.” Local simulated-host browser results do not establish a passing ChatGPT flow. The public demo URL returned HTTP 404; its obsolete URL is omitted from the preparation metadata. A replacement recording, verified reviewer access, canonical identity-preserving submission route, exact saved-submission checks and owner attestations remain required. Earlier dated records below describe historical checks, not current readiness.
+The current ChatGPT rehearsal returned catalog data but its app card remained blank, then displayed “This response couldn’t load.” Local simulated-host browser results do not establish a passing ChatGPT flow. The public demo URL returned HTTP 404; its obsolete URL is omitted from the preparation metadata. A replacement recording, verified reviewer access, canonical identity-preserving submission route, exact saved-submission checks and owner attestations remain required. A later retry rendered the old cached gallery, while installed metadata still advertises v10. Same-account reconnection is awaiting explicit approval after automatic review denied the action. The new v11 resource was independently retrieved and matched source, but latest-gallery rendering remains unverified. Current official guidance also requires a unique UI domain for submission; this metadata is not yet declared. The initial public-submission ownership mapping for this private Sites-owned App remains unverified; missing UI controls alone do not establish an unsupported route. Earlier dated records below describe historical checks, not current readiness.
 
 This repository provides source, branding, review cases, and a recording script. It does not claim an approved directory listing or OpenAI endorsement.
 
