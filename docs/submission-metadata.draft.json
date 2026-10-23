@@ -1,7 +1,7 @@
 {
   "$comment": "Draft metadata only. Not an installable plugin manifest or submission-ready package. Missing publication facts remain absent.",
   "name": "prompt-library",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Reusable prompt templates with conversation-aware field review and copy-only output.",
   "author": {
     "name": "Abdallah Arslan"
@@ -28,7 +28,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Prompt Library 2.0.0 submission preparation, Sites v19: accessible policy/audience footer, explicit Demo workspace labels, normal-library default, live copy with optional saving, and resource v10 with prior aliases. The demo page includes a current v19 UI/copy recording and a separately labeled v18 full workflow recording. Existing App/plugin/Site identities and production caps are preserved. Directory submission and external reviewer access remain pending OpenAI guidance."
+        "release_notes": "Prompt Library 2.1.0 preparation: read-only template previews and variable lists, gallery sorting, optional contextual filling, and individual quality review of all 35 built-ins with 10 proportional-rigor/outcome-ownership improvements. The existing owner-private Site runs version 20 with resource v11. Latest-gallery ChatGPT acceptance, current demo recording, canonical public-submission mapping and dedicated reviewer access remain unverified. This is not a submitted release."
       },
       "review": {
         "commerce": false,
@@ -79,8 +79,7 @@
               "prompt": "Using only Prompt Library, without invoking other apps or ChatGPT automation features: Publish my whole Prompt Library as a public link and synchronize it with my team's Notion workspace. Use the plugin to grant everyone edit access."
             }
           ]
-        },
-        "demo_recording_url": "https://aaarslan.com/prompt-library/demo/"
+        }
       }
     }
   }

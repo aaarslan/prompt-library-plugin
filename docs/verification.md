@@ -1,5 +1,29 @@
 # Verification record
 
+## October 23 private deployment and host compatibility follow-up
+
+The existing owner-private Site deployed source `29c157a8e22dccf2faf128fc25b6ccbb2c3128b5` successfully as version 20, retaining environment revision 1, MCP, the original App/plugin and one-owner audience with no external visitors. The approved temporary source credential was used only through the official source helper and expired; it was not printed or persisted.
+
+All 35 built-in prompts were read individually: 25 retained and 10 revised for complete requested outcomes, proportionate rigor, or reduced mandatory ceremony. The per-template decisions and before/after wording are in [the catalog review](catalog-review-2026-10-23.json). IDs and placeholder keys are unchanged. Forty Node tests and all five UI suites passed, including a new regression proving that a saved built-in draft keeps its original snapshot when the catalog body changes.
+
+Authenticated resource retrieval through the existing connection returned v11 as `text/html;profile=mcp-app`, 125,123 bytes, SHA-256 `d47d3609e7bc1076e222b206c0c5d7b92f7a60e137fcf815884c6d36ebcea18c`, exactly matching the deployed source. The v10 alias returned the same current HTML. The resource has empty network/resource CSP allowlists and no external script bundles. This establishes resource transport/content, not successful rendering of the new view.
+
+A retry in real ChatGPT web rendered the old gallery, establishing that this remote Site is not generally desktop-only. Its installed tool catalog still advertises v10, and the rendered cached view was old. The existing App’s supported Refresh tools action did not advance that observed URI. A fresh invocation again failed its first load. Same-account Reconnect was blocked by automatic approval review and did not execute; latest-gallery host acceptance remains unverified. Native Computer Use access was denied by the automation layer, so no native-client compatibility result is claimed. No protocol aliases, permission grants, or App identities were changed to work around these results.
+
+The deployed source omits `_meta.ui.domain`. Current official UI reference documentation requires a unique domain for submission but supplies a development default, so this is a submission gap rather than a demonstrated cause of the initial loading failure. The current portfolio `dev` tree contains no demo route or MP4 assets; its route parser returns not-found for the documented demo URL. No replacement recording is claimed. The proper initial-public-submission ownership route for this private Sites-owned App still needs verification; absence of a selector alone is not proof that it is unsupported.
+
+
+## October 23 gallery candidate, source 2.1.0 — not deployed or submitted
+
+The candidate adds read-only original-template previews with variable lists, title/category sorting, and optional contextual filling in an expandable section. The existing owner/Demo boundary, import preview, draft snapshots, optimistic version checks, and live unsaved copy remain unchanged. UI resource v11 retains v1–v10 aliases.
+
+Typecheck, 39 Node tests, all five existing UI suites with targeted gallery assertions, production build, and the isolated local HTTP/D1 smoke passed. The smoke retains the documented Miniflare first-post-cancellation connection caveat and confirms recovery with one read-only ping. In a real browser against a clearly labeled local host simulation, original prompt/field previews, template selection, editing three fictional Orchard values, and actual clipboard readback passed. At a 390-pixel viewport, the document and scroll widths both measured 390. The temporary viewport was reset. These checks do not establish current ChatGPT-host acceptance.
+
+A current authenticated ChatGPT rehearsal returned the Demo catalog but showed a blank app card followed by “Couldn’t display Prompt Library” and “This response couldn’t load.” The loading failure remains unresolved. The public demo URL returned HTTP 404, while product/support/privacy/terms pages returned 200 with the intended content. The obsolete demo URL is absent from current preparation metadata. The portal exposes a ZIP upload and the saved individual developer identity, but no existing canonical App reuse selector was observed. No archive was uploaded, no duplicate App was created, and no submission or publication occurred.
+
+Plugin Creator metadata and files identify the existing private, personal App-backed plugin. Its binding and audience remain unchanged. The live Site still runs version 19/source 2.0.0. The incomplete preparation ZIP has four files and reports the missing verified actual-host recording, with reviewer access, canonical submission identity, saved-version tests/scans and owner attestations still outstanding. The public source candidate passes the repository audit and a fresh Gitleaks scan; generated private hosting configuration and build outputs are excluded from public source.
+
+
 ## October 14 v19 cleanup and review materials
 
 The v19 cleanup was imported from the owning source commit `5f7eee3`. It moves audience/policy links and the explicit workspace switch into an accessible footer, hides the normal-library banner, retains the fictional Demo notice, and advances the UI resource to v10 while preserving aliases v1–v9. No authentication, data schema, production caps, or canonical App/plugin/Site identities changed.

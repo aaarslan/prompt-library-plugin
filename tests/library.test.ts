@@ -94,3 +94,18 @@ test('workspace cannot spoof identity or select a reserved namespace',async()=>{
  assert.throws(()=>new LibraryService(db(),'\u001fprompt-library-demo:v1:owner',TEST_LIMITS),/Sign in/);
  for(const tool of TOOLS){assert.deepEqual((tool.inputSchema.properties as {workspace:{enum:string[]}}).workspace.enum,['library','demo']);assert.ok((tool.outputSchema.required as string[]).includes('workspace'));}
 });
+
+test('saved built-in drafts keep their snapshot when the catalog prompt evolves',async()=>{
+ const service=new LibraryService(db(),'fictional-catalog-snapshot',TEST_LIMITS);
+ const template=SAMPLE_TEMPLATES.find(t=>t.id==='sample_codex_implementation_brief')!;
+ const originalBody=template.body;
+ const saved=(await service.call('prepare_draft',{workspace:'demo',template_id:template.id,values:[{key:'requested_change',value:'Orchard fictional feature',source:'provided'}]})).draft as Draft;
+ try{
+  template.body=originalBody+'\nCatalog revision for new drafts only.';
+  const reopened=await service.call('render_prompt',{workspace:'demo',draft_id:saved.id});
+  assert.equal((reopened.template as Template).body,originalBody);
+  assert.equal((reopened.draft as Draft).renderedPrompt,saved.renderedPrompt);
+  const next=(await service.call('prepare_draft',{workspace:'demo',template_id:template.id,values:[{key:'requested_change',value:'Orchard fictional feature',source:'provided'}]})).draft as Draft;
+  assert.match(next.renderedPrompt,/Catalog revision for new drafts only/);
+ }finally{template.body=originalBody}
+});
