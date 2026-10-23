@@ -37,8 +37,8 @@ try{
  assert.equal(resourceList.length,1);
  const uiTool=(await rpc('tools/list',{})).data.result.tools.find(t=>t.name==='open_library');
  assert.equal(uiTool._meta.ui.resourceUri,resourceList[0].uri);
- const resource=(await rpc('resources/read',{uri:resourceList[0].uri})).data.result.contents[0];assert.equal(resource.uri,resourceList[0].uri);assert.equal(resource.mimeType,'text/html;profile=mcp-app');assert.ok(resource.text.includes('Prompt Library'));assert.ok(resource.text.includes('workspace-switch'));
- for(const version of [1,2,3,4,5,6,7,8,9,10]){const uri='ui://prompt-library/library-v'+version+'.html';const legacyUi=(await rpc('resources/read',{uri})).data.result.contents[0];assert.equal(legacyUi.uri,uri);assert.ok(legacyUi.text.includes('Prompt Library'));}
+ const resource=(await rpc('resources/read',{uri:resourceList[0].uri})).data.result.contents[0];assert.equal(resource.uri,resourceList[0].uri);assert.equal(resource.mimeType,'text/html;profile=mcp-app');assert.ok(resource.text.includes('Prompt Library'));assert.ok(resource.text.includes('workspace-switch'));assert.equal(resource._meta.ui.domain,new URL(base).origin);assert.equal(resourceList[0]._meta.ui.domain,new URL(base).origin);assert.deepEqual(resource._meta.ui.csp,{connectDomains:[],resourceDomains:[]});
+ for(const version of [1,2,3,4,5,6,7,8,9,10,11]){const uri='ui://prompt-library/library-v'+version+'.html';const legacyUi=(await rpc('resources/read',{uri})).data.result.contents[0];assert.equal(legacyUi.uri,uri);assert.ok(legacyUi.text.includes('Prompt Library'));}
  const modernMeta={'io.modelcontextprotocol/protocolVersion':'2026-07-28','io.modelcontextprotocol/clientCapabilities':{}};
  for(const [method,params] of [['server/discover',{}],['tools/list',{}],['resources/list',{}],['resources/templates/list',{}],['resources/read',{uri:resourceList[0].uri}]]){
   for(const headers of [{},{'MCP-Protocol-Version':'2026-07-28'}]){
