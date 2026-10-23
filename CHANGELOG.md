@@ -6,6 +6,7 @@
 - Sort the loaded gallery by library order, title, or category; retain scopes, search, and pagination.
 - Prioritize manual field editing and live preview, with optional ChatGPT filling in an expandable section.
 - Preserve unsaved edits, owner and Demo isolation, optimistic draft checks, import previews, and copy-only behavior.
+- Review all 35 built-ins individually; improve 10 prompts for complete outcomes and proportionate rigor while preserving all IDs, placeholder keys and saved snapshots.
 - Advance the UI resource to v11, retaining prior aliases. Hosting and external reviewer verification remain separate.
 
 ## 2.0.0: bounded catalog and usage controls

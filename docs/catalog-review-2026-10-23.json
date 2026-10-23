@@ -1,0 +1,712 @@
+{
+  "reviewed": 35,
+  "changed": 10,
+  "kept": 25,
+  "compatibility": "All built-in IDs and placeholder keys preserved; no migration or writes to existing templates/drafts.",
+  "templates": [
+    {
+      "id": "sample_project_brief",
+      "title": "Project brief",
+      "decision": "keep",
+      "reason": "Clear planning outcome, five useful inputs, explicit success and honest assumptions; no implementation task is implied.",
+      "changes": [],
+      "placeholder_keys": [
+        "project_name",
+        "goal",
+        "audience",
+        "constraints",
+        "success_criteria"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "59edc49f059fa690b92fede487d3038c17ded3d8369dbab5900fb1c39a4dfbdf",
+      "after_sha256": "59edc49f059fa690b92fede487d3038c17ded3d8369dbab5900fb1c39a4dfbdf"
+    },
+    {
+      "id": "sample_clear_message",
+      "title": "Clear message",
+      "decision": "keep",
+      "reason": "Channel, recipient, purpose and style are useful inputs; draft-only boundary fits the task.",
+      "changes": [],
+      "placeholder_keys": [
+        "channel",
+        "recipient",
+        "topic",
+        "context",
+        "desired_outcome",
+        "style"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "8171774c2ea516a1500a7920035340f5c2d1b68b17bd13c461223f6f1b1b1ce0",
+      "after_sha256": "8171774c2ea516a1500a7920035340f5c2d1b68b17bd13c461223f6f1b1b1ce0"
+    },
+    {
+      "id": "sample_decision_review",
+      "title": "Decision review",
+      "decision": "keep",
+      "reason": "Criteria-led trade-offs and missing evidence support a real decision without forced scoring.",
+      "changes": [],
+      "placeholder_keys": [
+        "options",
+        "decision",
+        "criteria",
+        "known_facts",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "5040af9917bfaaccece9c83ce89525653c5601fed88723e89d735818b10d670d",
+      "after_sha256": "5040af9917bfaaccece9c83ce89525653c5601fed88723e89d735818b10d670d"
+    },
+    {
+      "id": "sample_architecture_review",
+      "title": "Architecture review",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "A prioritized findings table: severity, evidence, failure mode, impact, and a concrete mitigation.",
+          "after": "Prioritized findings with severity, evidence, failure mode, impact, and a concrete mitigation; use a table when it improves comparison."
+        },
+        {
+          "before": "including the simplest viable alternative and when it would stop being sufficient",
+          "after": "including a less complex viable alternative where one exists and when it would stop being sufficient"
+        },
+        {
+          "before": "Avoid proposing complexity without a specific requirement.",
+          "after": "Match the depth of review and proposed design to the requirements and stakes. Avoid both unnecessary complexity and shortcuts that leave the stated outcome unmet."
+        }
+      ],
+      "placeholder_keys": [
+        "system_name",
+        "primary_goal",
+        "architecture_context",
+        "workload_requirements",
+        "constraints",
+        "known_concerns"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "342aef6c91003510117fe568d8ba4130dd49eaf767d07b376491a59613ec04b7",
+      "after_sha256": "cd43a88096606e586212781c1f7c6c5c871631d7c3eaca806c5951e4701debf9"
+    },
+    {
+      "id": "sample_codex_implementation_brief",
+      "title": "Codex implementation brief",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "make the smallest coherent implementation, and report tests actually run plus remaining limitations",
+          "after": "deliver a complete coherent implementation, and report verification actually performed plus remaining limitations"
+        },
+        {
+          "before": "Identify decisions that require clarification instead of guessing.",
+          "after": "Carry the authorized work through the requested outcome and proportionate validation; investigation, a plan, a first passing test, or an intermediate checkpoint is not completion. Keep complexity and verification proportional to the change, without treating brevity or a small diff as permission to omit needed behavior. Resolve routine choices from repository context; clarify only decisions whose missing facts materially affect correctness, scope, or authorization."
+        }
+      ],
+      "placeholder_keys": [
+        "requested_change",
+        "repository_context",
+        "desired_behavior",
+        "constraints",
+        "acceptance_criteria",
+        "verification_commands"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "5ca551d414b92f4e747c7a099b7ab1ee3712f19f5004856bdc5b0cc9097f6128",
+      "after_sha256": "05a740c881a7fb45ed92be788e28e5917ef73644b7b98c0053083aa6a6f54f43"
+    },
+    {
+      "id": "sample_debug_investigation",
+      "title": "Debugging investigation",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "Plan an investigation of {{failure_summary}}.",
+          "after": "Investigate {{failure_summary}} using the evidence and authorized tools available."
+        },
+        {
+          "before": "For each hypothesis, specify the smallest discriminating test, what each result would mean, and the next branch to follow.",
+          "after": "Use discriminating checks to test the leading hypotheses, explain what each observed result means, and follow the evidence until the cause or a precise blocker is established. If tools or sources are unavailable, provide the next concrete diagnostic step and clearly distinguish it from work performed."
+        },
+        {
+          "before": "Finish with regression tests and evidence required to call the problem resolved.",
+          "after": "If repair is within the stated authorization, carry it through and verify the affected behavior. Choose regression coverage proportional to the failure and the risk of recurrence; tests alone do not establish product quality. Otherwise report the supported diagnosis and recommended remedy without claiming a repair."
+        }
+      ],
+      "placeholder_keys": [
+        "failure_summary",
+        "expected_behavior",
+        "observed_evidence",
+        "reproduction_context",
+        "recent_changes",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "dbcc4cc8b29c0477f2c8b40953f98e4b4ef304dec6def09ab11274cd9a64a24c",
+      "after_sha256": "e983ff795e633de79ce6a669cc9534f41bc0fcaf6ad007c00ebb7956ee75b1e8"
+    },
+    {
+      "id": "sample_code_review",
+      "title": "Focused code review",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "propose a minimal fix plus a test that would catch it",
+          "after": "propose a complete focused fix and proportionate verification of the failure scenario"
+        }
+      ],
+      "placeholder_keys": [
+        "change_summary",
+        "review_priorities",
+        "code_context",
+        "expected_behavior",
+        "environment_context",
+        "test_evidence"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "a3c337fcded72ac5292bcd4bc24c98d7d60d3a8b408a8c68acb8a4d4e617dcef",
+      "after_sha256": "bcca88d6d0f0d76c4737d3553f0e80d9c6ed471482e79dd683fea4966932eeee"
+    },
+    {
+      "id": "sample_api_contract",
+      "title": "API contract draft",
+      "decision": "keep",
+      "reason": "Addresses lifecycle details only where relevant and separates proposals from existing interfaces.",
+      "changes": [],
+      "placeholder_keys": [
+        "capability",
+        "consumer_context",
+        "domain_context",
+        "required_operations",
+        "access_requirements",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "5c6fee0c4f83a02084a63e3c3aba7301d230f57c1a027a0048b161fa1eb5ac14",
+      "after_sha256": "5c6fee0c4f83a02084a63e3c3aba7301d230f57c1a027a0048b161fa1eb5ac14"
+    },
+    {
+      "id": "sample_migration_plan",
+      "title": "Safe migration plan",
+      "decision": "keep",
+      "reason": "Planning-only intent is explicit; dependency, recovery and irreversible-step treatment fit its risk.",
+      "changes": [],
+      "placeholder_keys": [
+        "current_state",
+        "target_state",
+        "affected_scope",
+        "constraints",
+        "dependencies",
+        "success_criteria"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "93b9983785eb45d85c1b88cbd55d780620a2c3dc8f629bd4840a34c6978a4bfe",
+      "after_sha256": "93b9983785eb45d85c1b88cbd55d780620a2c3dc8f629bd4840a34c6978a4bfe"
+    },
+    {
+      "id": "sample_agent_workflow",
+      "title": "Agent workflow design",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "a minimal sequence of states",
+          "after": "a sequence of states proportionate to the task"
+        },
+        {
+          "before": "Include an evaluation plan with representative tasks, adversarial cases, measurable checks, and observability needs.",
+          "after": "Define completion in terms of the requested user outcome, not an intermediate tool success or checkpoint. Include an evaluation plan with representative tasks, relevant failure cases, measurable checks, and observability needs; use human assessment where output quality cannot be captured by checks alone."
+        },
+        {
+          "before": "Keep external actions behind the stated approval boundaries; do not run the workflow.",
+          "after": "Reuse authorization already supplied within its stated scope, and pause for genuinely new access or consequential actions outside it. Do not run the workflow; this request is for its design."
+        }
+      ],
+      "placeholder_keys": [
+        "task_outcome",
+        "user_context",
+        "available_tools",
+        "permission_boundaries",
+        "constraints",
+        "evaluation_criteria"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "4621bfdc1a726d76377e9dfe159cdc2ff464e49766ed9b4e47326f9dc6f9c5d4",
+      "after_sha256": "d368924962c7b970f6cb770b50a82a6abc96e3959177e35237921458d61a5fa5"
+    },
+    {
+      "id": "sample_prompt_evaluation",
+      "title": "Prompt evaluation plan",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "Define release gates and what should trigger manual review.",
+          "after": "Scale the evaluation effort to the decision and failure consequences. Define release criteria where release is in scope and what should trigger manual review. Assess usefulness and completeness on realistic tasks as well as mechanical correctness; passing tests or a shorter response is not sufficient evidence of quality."
+        }
+      ],
+      "placeholder_keys": [
+        "prompt_or_agent",
+        "task_context",
+        "baseline_context",
+        "proposed_change",
+        "example_cases",
+        "requirements"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "7cf187390fa51a860f5d8fce1b871a7687fc1250822751bd7ba34a3c5918cd99",
+      "after_sha256": "446ce41e55e63fe507ace3c43518344c82b09aa54684d48634189782f47fe5a5"
+    },
+    {
+      "id": "sample_context_contract",
+      "title": "Agent context brief",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "the minimum context required at each decision point; a structured context schema",
+          "after": "the sufficient, relevant context required at each decision point; a context format suited to the task, using a schema only when useful"
+        }
+      ],
+      "placeholder_keys": [
+        "task",
+        "decision_points",
+        "source_inventory",
+        "data_boundaries",
+        "constraints",
+        "known_failures"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "c778dcd38d8622b52bbd49ba05a532d5bd6e8e6b37c01c7360e704cfe6630525",
+      "after_sha256": "746a49f8ad6fc46755ead0a9070843ffc63512dc2a539bcc93b8f48a4b55b82b"
+    },
+    {
+      "id": "sample_tool_contract",
+      "title": "AI tool contract",
+      "decision": "keep",
+      "reason": "Concrete schema/payload output and conditional operational concerns; permissions belong to this tool-design task.",
+      "changes": [],
+      "placeholder_keys": [
+        "tool_capability",
+        "use_cases",
+        "service_context",
+        "permission_boundaries",
+        "constraints",
+        "existing_conventions"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "d0b0d2e2b7bf157e2e723453bd1c77fad2fb5978a85b35bfe3e04f876113dfc4",
+      "after_sha256": "d0b0d2e2b7bf157e2e723453bd1c77fad2fb5978a85b35bfe3e04f876113dfc4"
+    },
+    {
+      "id": "sample_technical_research",
+      "title": "Technical research brief",
+      "decision": "keep",
+      "reason": "Decision-led primary-source research with recency and inaccessible-source honesty.",
+      "changes": [],
+      "placeholder_keys": [
+        "research_question",
+        "intended_decision",
+        "existing_context",
+        "scope",
+        "freshness_requirements",
+        "source_material"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "495fbd50a18d056cdb0b8b10230d592d05b2ffb391654234c43f2eef3a391c2a",
+      "after_sha256": "495fbd50a18d056cdb0b8b10230d592d05b2ffb391654234c43f2eef3a391c2a"
+    },
+    {
+      "id": "sample_evidence_synthesis",
+      "title": "Evidence synthesis",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "Produce a concise answer, a source-by-source evidence map, areas of agreement and disagreement, and the limits of the available material.",
+          "after": "Produce an answer with enough depth to resolve the stated question, areas of agreement and disagreement, and the limits of the available material. Include a source-by-source evidence map when it makes the evidence easier to inspect."
+        }
+      ],
+      "placeholder_keys": [
+        "topic",
+        "central_question",
+        "source_material",
+        "audience",
+        "scope",
+        "open_questions"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "2fc51cfa8ad6e62913e24eb67f3cc395d1db4fe0d1e710c04ec966f0f8595e7b",
+      "after_sha256": "a781d9111cd7ee436b012a30a6d1b829fc60578cbbae726baaf2c06292ed5eea"
+    },
+    {
+      "id": "sample_technology_comparison",
+      "title": "Technology comparison",
+      "decision": "keep",
+      "reason": "Workload-led evidence and conditional recommendation avoid unsupported scores and benchmark claims.",
+      "changes": [],
+      "placeholder_keys": [
+        "options",
+        "use_case",
+        "requirements",
+        "team_context",
+        "constraints",
+        "source_material"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "868839559fa8bf539005d4d5904e89b58a540a371d0eb45ae60d2c684e9f54bb",
+      "after_sha256": "868839559fa8bf539005d4d5904e89b58a540a371d0eb45ae60d2c684e9f54bb"
+    },
+    {
+      "id": "sample_research_plan",
+      "title": "Research investigation plan",
+      "decision": "keep",
+      "reason": "Decision value, disconfirming evidence and a stopping rule prevent open-ended background work.",
+      "changes": [],
+      "placeholder_keys": [
+        "research_question",
+        "intended_outcome",
+        "existing_evidence",
+        "constraints",
+        "available_sources"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "dc967fd0a4512360c6cd7bf24ad538b64256a1f0fa105717ff37156739add7d2",
+      "after_sha256": "dc967fd0a4512360c6cd7bf24ad538b64256a1f0fa105717ff37156739add7d2"
+    },
+    {
+      "id": "sample_opportunity_assessment",
+      "title": "Business opportunity assessment",
+      "decision": "keep",
+      "reason": "Commercial hypotheses, evidence and pursue/test/pause decision are explicit without invented market data.",
+      "changes": [],
+      "placeholder_keys": [
+        "opportunity",
+        "customer_problem",
+        "proposed_solution",
+        "available_evidence",
+        "business_model",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "1f2a1d5c782ee1a98f6d2decbffb48abfb5e847f38dea67361d5fdb8192c551d",
+      "after_sha256": "1f2a1d5c782ee1a98f6d2decbffb48abfb5e847f38dea67361d5fdb8192c551d"
+    },
+    {
+      "id": "sample_positioning_brief",
+      "title": "Positioning brief",
+      "decision": "keep",
+      "reason": "Audience, alternatives and proof support differentiated messaging; keeps unsupported claims visible.",
+      "changes": [],
+      "placeholder_keys": [
+        "offering",
+        "audience",
+        "customer_problem",
+        "alternatives",
+        "proof_points",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "87d9e00566a5d8a1548811696584f8dc4dec8ff9947703b3d29445e50079f5bf",
+      "after_sha256": "87d9e00566a5d8a1548811696584f8dc4dec8ff9947703b3d29445e50079f5bf"
+    },
+    {
+      "id": "sample_business_experiment",
+      "title": "Business experiment design",
+      "decision": "keep",
+      "reason": "Decision, baseline, guardrails and inconclusive outcomes distinguish useful learning from fake statistical certainty.",
+      "changes": [],
+      "placeholder_keys": [
+        "hypothesis",
+        "decision",
+        "target_segment",
+        "baseline_evidence",
+        "resources",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "65bb5dd576206d5add6af4ce16673996e5431e2a337c93b530a7d702f46121b1",
+      "after_sha256": "65bb5dd576206d5add6af4ce16673996e5431e2a337c93b530a7d702f46121b1"
+    },
+    {
+      "id": "sample_operating_review",
+      "title": "Business operating review",
+      "decision": "keep",
+      "reason": "Compatible definitions, observed versus causal claims and proposed owners preserve analytical honesty.",
+      "changes": [],
+      "placeholder_keys": [
+        "business_or_team",
+        "review_period",
+        "goals",
+        "performance_evidence",
+        "developments",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "e5aa7ce1f1e1de61537187b4aa49ce4e5ee171e206f3a1f5d121d84ce3c4953d",
+      "after_sha256": "e5aa7ce1f1e1de61537187b4aa49ce4e5ee171e206f3a1f5d121d84ce3c4953d"
+    },
+    {
+      "id": "sample_product_requirements",
+      "title": "Product requirements brief",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "explicit non-goals, and a small first release",
+          "after": "explicit non-goals, and a release scope that delivers the stated outcome"
+        },
+        {
+          "before": "Make acceptance criteria observable.",
+          "after": "Make acceptance criteria observable. Explain any proposed staging or scope reduction and its effect on the user outcome; do not assume the smallest release is automatically the right one."
+        }
+      ],
+      "placeholder_keys": [
+        "product_change",
+        "user_problem",
+        "current_context",
+        "success_criteria",
+        "constraints",
+        "scope_context"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "9a7a308a96db7360221e5c0dffb575889bf20fa65c26dcf8c757574cf495e79b",
+      "after_sha256": "df07569011e75632048b7220a1ee4fac52160acf57016fa2a2a595eb2e86ddd5"
+    },
+    {
+      "id": "sample_ux_review",
+      "title": "UX friction review",
+      "decision": "keep",
+      "reason": "User goal and observable evidence drive coherent fixes; does not claim unseen screens or testing.",
+      "changes": [],
+      "placeholder_keys": [
+        "flow_or_screen",
+        "target_user",
+        "user_goal",
+        "experience_context",
+        "constraints",
+        "known_issues"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "d71f02fb9b9becaf39eb00739442b0b7305df62a80c41fe1ce41e32c4c9b73fc",
+      "after_sha256": "d71f02fb9b9becaf39eb00739442b0b7305df62a80c41fe1ce41e32c4c9b73fc"
+    },
+    {
+      "id": "sample_customer_interview",
+      "title": "Customer interview guide",
+      "decision": "keep",
+      "reason": "Recent behavior, non-leading probes and disconfirming questions fit interview preparation.",
+      "changes": [],
+      "placeholder_keys": [
+        "research_topic",
+        "research_goals",
+        "participant_profile",
+        "existing_context",
+        "session_format",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "3b70adb271757442743ede7a01b9d1f8ae06eb328a294b3f9c565a9ea26eeeb9",
+      "after_sha256": "3b70adb271757442743ede7a01b9d1f8ae06eb328a294b3f9c565a9ea26eeeb9"
+    },
+    {
+      "id": "sample_design_directions",
+      "title": "Design direction brief",
+      "decision": "keep",
+      "reason": "Three meaningfully different approaches are intentional for this comparison task, with feasibility uncertainty preserved.",
+      "changes": [],
+      "placeholder_keys": [
+        "design_challenge",
+        "user_context",
+        "design_context",
+        "requirements",
+        "constraints",
+        "success_criteria"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "85129b58e39a03143cd782e8cdf28d450f6dd4e611dea31e3393d3bf4f53676a",
+      "after_sha256": "85129b58e39a03143cd782e8cdf28d450f6dd4e611dea31e3393d3bf4f53676a"
+    },
+    {
+      "id": "sample_executive_summary",
+      "title": "Executive summary",
+      "decision": "keep",
+      "reason": "Reader, decision and must-keep caveats prevent concise output from losing material qualifications.",
+      "changes": [],
+      "placeholder_keys": [
+        "source_material",
+        "audience",
+        "intended_outcome",
+        "format",
+        "must_keep"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "025cad8f87433c8ed494f0e863313d5d2eea8fc06b5ad7833de7761927deac98",
+      "after_sha256": "025cad8f87433c8ed494f0e863313d5d2eea8fc06b5ad7833de7761927deac98"
+    },
+    {
+      "id": "sample_edit_draft",
+      "title": "Draft editor",
+      "decision": "keep",
+      "reason": "Preserves voice and certainty, treats embedded instructions as content, and returns the complete edited artifact.",
+      "changes": [],
+      "placeholder_keys": [
+        "draft_text",
+        "audience_and_channel",
+        "purpose",
+        "style",
+        "must_preserve"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "50e7337ba46d895fef05e89ea7ebdc14b4b32f399d54b5006914a245ec28b3b8",
+      "after_sha256": "50e7337ba46d895fef05e89ea7ebdc14b4b32f399d54b5006914a245ec28b3b8"
+    },
+    {
+      "id": "sample_launch_announcement",
+      "title": "Launch announcement",
+      "decision": "keep",
+      "reason": "Availability, evidence and caveats prevent exaggerated launch claims; draft-only scope is appropriate.",
+      "changes": [],
+      "placeholder_keys": [
+        "product_or_change",
+        "audience_and_channel",
+        "availability",
+        "benefits_and_evidence",
+        "caveats",
+        "call_to_action_and_style"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "b66bc78032020123176d7524d47eae8a6318d5366bad7eee23b74ac3fca25607",
+      "after_sha256": "b66bc78032020123176d7524d47eae8a6318d5366bad7eee23b74ac3fca25607"
+    },
+    {
+      "id": "sample_technical_explainer",
+      "title": "Technical explainer",
+      "decision": "keep",
+      "reason": "Mechanism, reader outcome and a worked example provide depth without invented sources or tests.",
+      "changes": [],
+      "placeholder_keys": [
+        "technical_topic",
+        "audience",
+        "prior_knowledge",
+        "learning_outcome",
+        "source_material",
+        "format"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "e76da4f3901da04b84064878a8fa36c8251604bc76f7e915917d1ec21274ae9e",
+      "after_sha256": "e76da4f3901da04b84064878a8fa36c8251604bc76f7e915917d1ec21274ae9e"
+    },
+    {
+      "id": "sample_weekly_plan",
+      "title": "Realistic weekly plan",
+      "decision": "change",
+      "reason": "Concrete wording revised for outcome ownership, proportional rigor or reduced mandatory ceremony within this template’s purpose.",
+      "changes": [
+        {
+          "before": "Include a short daily reset and end-of-week review.",
+          "after": "Suggest a simple way to adjust the plan as commitments change; recurring review routines are optional and should earn their time cost."
+        }
+      ],
+      "placeholder_keys": [
+        "planning_period",
+        "priorities",
+        "commitments",
+        "capacity",
+        "task_inventory",
+        "preferences"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "7e367d486a0d79ea3113e54393195521904b2c1738d6ce0ba222cfb5d5408140",
+      "after_sha256": "bce8409744253e75aef77df7a02cd5d867c43730bcccd4af169510ee4375abd9"
+    },
+    {
+      "id": "sample_trip_outline",
+      "title": "Trip planning outline",
+      "decision": "keep",
+      "reason": "Practical itinerary and authoritative current checks fit travel planning without pretending to book.",
+      "changes": [],
+      "placeholder_keys": [
+        "destination",
+        "travel_dates",
+        "traveler_preferences",
+        "travel_context",
+        "budget_and_transport",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "18e5ea0eb04a2bdf001b31e9573430a2acc93a96216de5fef3bee0e0ca6675c0",
+      "after_sha256": "18e5ea0eb04a2bdf001b31e9573430a2acc93a96216de5fef3bee0e0ca6675c0"
+    },
+    {
+      "id": "sample_learning_plan",
+      "title": "Focused learning plan",
+      "decision": "keep",
+      "reason": "Active practice, checkpoints and adjustment target demonstrated ability rather than resource lists.",
+      "changes": [],
+      "placeholder_keys": [
+        "learning_goal",
+        "starting_point",
+        "time_budget",
+        "learning_preferences",
+        "success_criteria",
+        "constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "8245a4cadc9ffcd83f7c769580f3195463999ecb82859eb5a48a7f1bccc177a1",
+      "after_sha256": "8245a4cadc9ffcd83f7c769580f3195463999ecb82859eb5a48a7f1bccc177a1"
+    },
+    {
+      "id": "sample_problem_framing",
+      "title": "Problem framing",
+      "decision": "keep",
+      "reason": "Alternative framings and distinguishable hypotheses avoid premature solutions and invented causes.",
+      "changes": [],
+      "placeholder_keys": [
+        "situation",
+        "stakeholder_context",
+        "available_evidence",
+        "constraints",
+        "existing_approaches"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "8b1fefc9d49ef98ea2596599072a45a00f2a37cc35965dbf041ad7c731710c28",
+      "after_sha256": "8b1fefc9d49ef98ea2596599072a45a00f2a37cc35965dbf041ad7c731710c28"
+    },
+    {
+      "id": "sample_project_premortem",
+      "title": "Project pre-mortem",
+      "decision": "keep",
+      "reason": "Qualitative evidence-based risks lead to warning signals and contingencies without fake probabilities.",
+      "changes": [],
+      "placeholder_keys": [
+        "plan_or_project",
+        "desired_outcome",
+        "plan_context",
+        "execution_context",
+        "known_risks"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "644e182bf9db9e08043f78a6453f43a3192c73ea9e6b8f5678b3fbb485ac200c",
+      "after_sha256": "644e182bf9db9e08043f78a6453f43a3192c73ea9e6b8f5678b3fbb485ac200c"
+    },
+    {
+      "id": "sample_argument_stress_test",
+      "title": "Argument stress test",
+      "decision": "keep",
+      "reason": "Fair argument reconstruction, discriminating evidence and no false balance support useful reasoning.",
+      "changes": [],
+      "placeholder_keys": [
+        "claim",
+        "argument_context",
+        "decision_context",
+        "counterarguments",
+        "evaluation_constraints"
+      ],
+      "placeholder_compatibility": "unchanged",
+      "before_sha256": "0fafcf84adf8dc737c8c0271fa281e0f2c35dd70f200b4eea06ac62c78cf706c",
+      "after_sha256": "0fafcf84adf8dc737c8c0271fa281e0f2c35dd70f200b4eea06ac62c78cf706c"
+    }
+  ]
+}
