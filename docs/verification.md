@@ -1,5 +1,16 @@
 # Verification record
 
+## October 23 gallery candidate, source 2.1.0 — not deployed or submitted
+
+The candidate adds read-only original-template previews with variable lists, title/category sorting, and optional contextual filling in an expandable section. The existing owner/Demo boundary, import preview, draft snapshots, optimistic version checks, and live unsaved copy remain unchanged. UI resource v11 retains v1–v10 aliases.
+
+Typecheck, 39 Node tests, all five existing UI suites with targeted gallery assertions, production build, and the isolated local HTTP/D1 smoke passed. The smoke retains the documented Miniflare first-post-cancellation connection caveat and confirms recovery with one read-only ping. In a real browser against a clearly labeled local host simulation, original prompt/field previews, template selection, editing three fictional Orchard values, and actual clipboard readback passed. At a 390-pixel viewport, the document and scroll widths both measured 390. The temporary viewport was reset. These checks do not establish current ChatGPT-host acceptance.
+
+A current authenticated ChatGPT rehearsal returned the Demo catalog but showed a blank app card followed by “Couldn’t display Prompt Library” and “This response couldn’t load.” The loading failure remains unresolved. The public demo URL returned HTTP 404, while product/support/privacy/terms pages returned 200 with the intended content. The obsolete demo URL is absent from current preparation metadata. The portal exposes a ZIP upload and the saved individual developer identity, but no existing canonical App reuse selector was observed. No archive was uploaded, no duplicate App was created, and no submission or publication occurred.
+
+Plugin Creator metadata and files identify the existing private, personal App-backed plugin. Its binding and audience remain unchanged. The live Site still runs version 19/source 2.0.0. The incomplete preparation ZIP has four files and reports the missing verified actual-host recording, with reviewer access, canonical submission identity, saved-version tests/scans and owner attestations still outstanding. The public source candidate passes the repository audit and a fresh Gitleaks scan; generated private hosting configuration and build outputs are excluded from public source.
+
+
 ## October 14 v19 cleanup and review materials
 
 The v19 cleanup was imported from the owning source commit `5f7eee3`. It moves audience/policy links and the explicit workspace switch into an accessible footer, hides the normal-library banner, retains the fictional Demo notice, and advances the UI resource to v10 while preserving aliases v1–v9. No authentication, data schema, production caps, or canonical App/plugin/Site identities changed.
