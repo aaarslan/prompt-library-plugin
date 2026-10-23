@@ -1,5 +1,11 @@
 # Directory submission preparation
 
+## October 23 gallery candidate — not submitted
+
+Local source 2.1.0 adds explicit previews and gallery sorting. Current read-only Creator inspection confirms the existing private App-backed plugin and its unchanged binding. The existing Sites publication remains version 19, source 2.0.0; the candidate has not been deployed.
+
+The current ChatGPT rehearsal returned catalog data but its app card remained blank, then displayed “This response couldn’t load.” Local simulated-host browser results do not establish a passing ChatGPT flow. The public demo URL returned HTTP 404; its obsolete URL is omitted from the preparation metadata. A replacement recording, verified reviewer access, canonical identity-preserving submission route, exact saved-submission checks and owner attestations remain required. Earlier dated records below describe historical checks, not current readiness.
+
 This repository provides source, branding, review cases, and a recording script. It does not claim an approved directory listing or OpenAI endorsement.
 
 ## Prepared
