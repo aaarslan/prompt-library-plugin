@@ -28,7 +28,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Prompt Library 2.1.0: read-only previews, visible variables, gallery sorting and 10 improvements after individual review of all 35 built-ins. PR #1 is merged and canonical Site version 20 serves v11. Search, preview, field editing and copy were observed in ChatGPT web after same-account reconnect and view retry. Initial-load failure remains unresolved. Current demo video, dedicated UI domain, canonical initial-submission mapping and reviewer access remain incomplete. Not submitted."
+        "release_notes": "Prompt Library 2.1.0: previews, variable discovery, sorting and 10 reviewed prompt improvements. Canonical Site version 21 serves UI resource v12 on the existing dedicated component origin. Real ChatGPT gallery interactions and a genuine 87-second fictional Demo video are verified after view retry. Initial-load failure remains unresolved. Canonical initial-submission mapping, dedicated reviewer access, exact saved-submission cases/scans and owner attestations remain outstanding. Not submitted."
       },
       "review": {
         "commerce": false,
@@ -79,7 +79,8 @@
               "prompt": "Using only Prompt Library, without invoking other apps or ChatGPT automation features: Publish my whole Prompt Library as a public link and synchronize it with my team's Notion workspace. Use the plugin to grant everyone edit access."
             }
           ]
-        }
+        },
+        "demo_recording_url": "https://aaarslan.com/prompt-library/demo-assets/prompt-library-demo-v21.mp4"
       }
     }
   }

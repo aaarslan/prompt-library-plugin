@@ -2,11 +2,11 @@
 
 ## October 23 gallery candidate — private deployment complete, not submitted
 
-Local source 2.1.0 adds explicit previews and gallery sorting. Current read-only Creator inspection confirms the existing private App-backed plugin and its unchanged binding. The existing owner-private Site now runs version 20, source 2.1.0. The current App/plugin identity and environment revision are preserved.
+Local source 2.1.0 adds explicit previews and gallery sorting. Current read-only Creator inspection confirms the existing private App-backed plugin and its unchanged binding. The existing owner-private Site now runs version 21, source 2.1.0. The current App/plugin identity and environment revision are preserved.
 
-After the owner-approved same-account reconnect, installed tool metadata references v11 and the new gallery rendered in ChatGPT web. Real-host search, title sorting, read-only preview, preview-to-editor selection, fictional field edits, empty-search recovery and clipboard readback passed without saving records. The initial view still failed before the supported Try again action; reliable first-load behavior is not established.
+After the owner-approved same-account reconnect, installed tool metadata references v12 and the new gallery rendered in ChatGPT web. Real-host search, title sorting, read-only preview, preview-to-editor selection, fictional field edits, empty-search recovery and clipboard readback passed without saving records. The initial view still failed before the supported Try again action; reliable first-load behavior is not established.
 
-The [public demo route](https://aaarslan.com/prompt-library/demo/) now returns a labeled screenshot walkthrough captured from the actual v11 ChatGPT view. It is not a video or an installation link. The former recording could not be recovered. A replacement video, verified dedicated reviewer access, canonical identity-preserving initial submission route, saved-submission checks and owner attestations remain required. The unique UI domain required for submission is prepared separately but is not deployed. Missing portal controls alone do not prove that preserving the existing App is unsupported. Earlier dated records describe historical checks, not current readiness.
+The [public demo route](https://aaarslan.com/prompt-library/demo/) now contains a genuine 87-second continuous browser-tab recording of the real v12 ChatGPT flow, with fictional data and no audio, plus labeled historical v11 screenshots. The direct MP4 returned HTTP 200, matched its local SHA-256, decoded without errors and played in Chrome. A replacement video is now hosted and verified; dedicated reviewer access, canonical identity-preserving initial submission route, saved-submission checks and owner attestations remain required. The unique UI domain required for submission is deployed in Site version 21, using the existing Site origin and unchanged CSP allowlists. Installed tools reference v12; the real ChatGPT frame uses its corresponding dedicated sandbox origin. Missing portal controls alone do not prove that preserving the existing App is unsupported. Earlier dated records describe historical checks, not current readiness.
 
 This repository provides source, branding, review cases, and a recording script. It does not claim an approved directory listing or OpenAI endorsement.
 
@@ -15,15 +15,15 @@ This repository provides source, branding, review cases, and a recording script.
 - Versioned source with MIT license and preserved third-party notices
 - Square 512×512 PNG icon and editable SVG
 - Five positive and three unsupported-request review cases
-- A walkthrough script and a [public real-host screenshot walkthrough](https://aaarslan.com/prompt-library/demo/) using fictional Demo records; the required replacement video remains incomplete
+- A walkthrough script and a [public real-host screenshot walkthrough](https://aaarslan.com/prompt-library/demo/) using fictional Demo records; the [genuine v21 MP4](https://aaarslan.com/prompt-library/demo-assets/prompt-library-demo-v21.mp4) is hosted with verified playback
 - Source tests, mock-host UI tests, local HTTP/D1 smoke tooling, and deterministic packaging
 - Publisher: Abdallah Arslan, individual; the selected organization now shows Verified
 - Explicit all-supported-countries targeting (`countries: []`) and free release (`commerce: false`), supplied by the owner
 - A separate portable upload builder that omits private App bindings and credentials, verifies its ZIP inventory, and refuses missing materials unless explicitly building a preparation draft
 - Existing product, support, privacy and terms pages verified in the public browser; the October 14 privacy update discloses usage counters and cleanup
 - Owner-approved adults-only eligibility (18+) in the app notice, policies and listing; the notice does not technically verify age
-- Canonical Sites version 20 runs source 2.1.0 with UI resource v11; the original App/plugin identity, environment revision and owner-only audience are preserved
-- Portable preparation ZIP with checked inventory and no detected secrets; it is incomplete and has no current verified recording URL
+- Canonical Sites version 21 runs source 2.1.0 with UI resource v12; the original App/plugin identity, environment revision and owner-only audience are preserved
+- Portable preparation ZIP with checked inventory and no detected secrets; it includes the current verified recording URL but still requires online submission checks
 - Authenticated v19 resource retrieval and real Chrome card/copy behavior verified; earlier Safari checks cover the repaired integration. The complete Demo catalog includes all 35 built-ins and owned fictional templates.
 
 ## Still required for submission
